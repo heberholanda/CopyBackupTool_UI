@@ -65,7 +65,7 @@
             this.buttonAdd.Location = new System.Drawing.Point(247, 493);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(125, 25);
-            this.buttonAdd.TabIndex = 0;
+            this.buttonAdd.TabIndex = 15;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
@@ -75,7 +75,7 @@
             this.buttonReset.Location = new System.Drawing.Point(103, 493);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(125, 25);
-            this.buttonReset.TabIndex = 1;
+            this.buttonReset.TabIndex = 16;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
@@ -95,7 +95,7 @@
             this.textBoxTitle.Location = new System.Drawing.Point(169, 22);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(250, 20);
-            this.textBoxTitle.TabIndex = 3;
+            this.textBoxTitle.TabIndex = 1;
             // 
             // labelStatus
             // 
@@ -112,7 +112,7 @@
             this.checkBoxStatus.Location = new System.Drawing.Point(169, 51);
             this.checkBoxStatus.Name = "checkBoxStatus";
             this.checkBoxStatus.Size = new System.Drawing.Size(59, 17);
-            this.checkBoxStatus.TabIndex = 6;
+            this.checkBoxStatus.TabIndex = 2;
             this.checkBoxStatus.Text = "Enable";
             this.checkBoxStatus.UseVisualStyleBackColor = true;
             // 
@@ -127,7 +127,8 @@
             this.imageButtonTools.Margin = new System.Windows.Forms.Padding(0);
             this.imageButtonTools.Name = "imageButtonTools";
             this.imageButtonTools.Size = new System.Drawing.Size(64, 64);
-            this.imageButtonTools.TabIndex = 14;
+            this.imageButtonTools.TabIndex = 100;
+            this.imageButtonTools.TabStop = false;
             this.imageButtonTools.UseVisualStyleBackColor = false;
             // 
             // imageButtonCopyPaste
@@ -141,7 +142,8 @@
             this.imageButtonCopyPaste.Margin = new System.Windows.Forms.Padding(0);
             this.imageButtonCopyPaste.Name = "imageButtonCopyPaste";
             this.imageButtonCopyPaste.Size = new System.Drawing.Size(64, 64);
-            this.imageButtonCopyPaste.TabIndex = 15;
+            this.imageButtonCopyPaste.TabIndex = 40;
+            this.imageButtonCopyPaste.TabStop = false;
             this.imageButtonCopyPaste.UseVisualStyleBackColor = false;
             // 
             // checkBoxCopyPasteStatus
@@ -150,14 +152,14 @@
             this.checkBoxCopyPasteStatus.Location = new System.Drawing.Point(176, 110);
             this.checkBoxCopyPasteStatus.Name = "checkBoxCopyPasteStatus";
             this.checkBoxCopyPasteStatus.Size = new System.Drawing.Size(59, 17);
-            this.checkBoxCopyPasteStatus.TabIndex = 17;
+            this.checkBoxCopyPasteStatus.TabIndex = 3;
             this.checkBoxCopyPasteStatus.Text = "Enable";
             this.checkBoxCopyPasteStatus.UseVisualStyleBackColor = true;
             // 
             // labelCopyPasteStatus
             // 
             this.labelCopyPasteStatus.AutoSize = true;
-            this.labelCopyPasteStatus.Location = new System.Drawing.Point(107, 110);
+            this.labelCopyPasteStatus.Location = new System.Drawing.Point(100, 110);
             this.labelCopyPasteStatus.Name = "labelCopyPasteStatus";
             this.labelCopyPasteStatus.Size = new System.Drawing.Size(37, 13);
             this.labelCopyPasteStatus.TabIndex = 16;
@@ -174,7 +176,8 @@
             this.imageButtonZip.Margin = new System.Windows.Forms.Padding(0);
             this.imageButtonZip.Name = "imageButtonZip";
             this.imageButtonZip.Size = new System.Drawing.Size(64, 64);
-            this.imageButtonZip.TabIndex = 20;
+            this.imageButtonZip.TabIndex = 30;
+            this.imageButtonZip.TabStop = false;
             this.imageButtonZip.UseVisualStyleBackColor = false;
             // 
             // textBoxCopyPasteSourcePath
@@ -183,13 +186,13 @@
             this.textBoxCopyPasteSourcePath.Location = new System.Drawing.Point(176, 134);
             this.textBoxCopyPasteSourcePath.Name = "textBoxCopyPasteSourcePath";
             this.textBoxCopyPasteSourcePath.Size = new System.Drawing.Size(250, 20);
-            this.textBoxCopyPasteSourcePath.TabIndex = 21;
+            this.textBoxCopyPasteSourcePath.TabIndex = 5;
             this.textBoxCopyPasteSourcePath.Click += new System.EventHandler(this.textBox_Click);
             // 
             // labelCopyPasteSourcePath
             // 
             this.labelCopyPasteSourcePath.AutoSize = true;
-            this.labelCopyPasteSourcePath.Location = new System.Drawing.Point(107, 137);
+            this.labelCopyPasteSourcePath.Location = new System.Drawing.Point(100, 137);
             this.labelCopyPasteSourcePath.Name = "labelCopyPasteSourcePath";
             this.labelCopyPasteSourcePath.Size = new System.Drawing.Size(41, 13);
             this.labelCopyPasteSourcePath.TabIndex = 22;
@@ -202,7 +205,7 @@
             this.checkBoxCopyPasteOverwrite.Location = new System.Drawing.Point(367, 111);
             this.checkBoxCopyPasteOverwrite.Name = "checkBoxCopyPasteOverwrite";
             this.checkBoxCopyPasteOverwrite.Size = new System.Drawing.Size(59, 17);
-            this.checkBoxCopyPasteOverwrite.TabIndex = 24;
+            this.checkBoxCopyPasteOverwrite.TabIndex = 4;
             this.checkBoxCopyPasteOverwrite.Text = "Enable";
             this.checkBoxCopyPasteOverwrite.UseVisualStyleBackColor = true;
             // 
@@ -218,7 +221,7 @@
             // labelCopyPasteDestinationPath
             // 
             this.labelCopyPasteDestinationPath.AutoSize = true;
-            this.labelCopyPasteDestinationPath.Location = new System.Drawing.Point(107, 165);
+            this.labelCopyPasteDestinationPath.Location = new System.Drawing.Point(100, 165);
             this.labelCopyPasteDestinationPath.Name = "labelCopyPasteDestinationPath";
             this.labelCopyPasteDestinationPath.Size = new System.Drawing.Size(60, 13);
             this.labelCopyPasteDestinationPath.TabIndex = 26;
@@ -231,7 +234,7 @@
             this.textBoxCopyPasteDestinationPath.Location = new System.Drawing.Point(176, 162);
             this.textBoxCopyPasteDestinationPath.Name = "textBoxCopyPasteDestinationPath";
             this.textBoxCopyPasteDestinationPath.Size = new System.Drawing.Size(250, 20);
-            this.textBoxCopyPasteDestinationPath.TabIndex = 25;
+            this.textBoxCopyPasteDestinationPath.TabIndex = 6;
             // 
             // textBoxCopyPasteIgnoreFiles
             // 
@@ -239,7 +242,7 @@
             this.textBoxCopyPasteIgnoreFiles.Location = new System.Drawing.Point(177, 196);
             this.textBoxCopyPasteIgnoreFiles.Name = "textBoxCopyPasteIgnoreFiles";
             this.textBoxCopyPasteIgnoreFiles.Size = new System.Drawing.Size(249, 20);
-            this.textBoxCopyPasteIgnoreFiles.TabIndex = 28;
+            this.textBoxCopyPasteIgnoreFiles.TabIndex = 7;
             // 
             // labelCopyPasteIgnoreFiles
             // 
@@ -260,7 +263,7 @@
             this.panelCopyPasteIgnoreModal.Location = new System.Drawing.Point(95, 189);
             this.panelCopyPasteIgnoreModal.Name = "panelCopyPasteIgnoreModal";
             this.panelCopyPasteIgnoreModal.Size = new System.Drawing.Size(346, 61);
-            this.panelCopyPasteIgnoreModal.TabIndex = 29;
+            this.panelCopyPasteIgnoreModal.TabIndex = 7;
             // 
             // textBoxCopyPasteIgnoreFolders
             // 
@@ -268,7 +271,7 @@
             this.textBoxCopyPasteIgnoreFolders.Location = new System.Drawing.Point(81, 32);
             this.textBoxCopyPasteIgnoreFolders.Name = "textBoxCopyPasteIgnoreFolders";
             this.textBoxCopyPasteIgnoreFolders.Size = new System.Drawing.Size(249, 20);
-            this.textBoxCopyPasteIgnoreFolders.TabIndex = 31;
+            this.textBoxCopyPasteIgnoreFolders.TabIndex = 8;
             // 
             // labelCopyPasteIgnoreFolders
             // 
@@ -286,7 +289,7 @@
             this.textBoxCompressIgnoreFiles.Location = new System.Drawing.Point(169, 398);
             this.textBoxCompressIgnoreFiles.Name = "textBoxCompressIgnoreFiles";
             this.textBoxCompressIgnoreFiles.Size = new System.Drawing.Size(249, 20);
-            this.textBoxCompressIgnoreFiles.TabIndex = 39;
+            this.textBoxCompressIgnoreFiles.TabIndex = 13;
             // 
             // labelCompressIgnoreFiles
             // 
@@ -313,7 +316,7 @@
             this.textBoxCompressDestinationPath.Location = new System.Drawing.Point(168, 364);
             this.textBoxCompressDestinationPath.Name = "textBoxCompressDestinationPath";
             this.textBoxCompressDestinationPath.Size = new System.Drawing.Size(250, 20);
-            this.textBoxCompressDestinationPath.TabIndex = 36;
+            this.textBoxCompressDestinationPath.TabIndex = 12;
             // 
             // labelCompressSourcePath
             // 
@@ -331,7 +334,7 @@
             this.textBoxCompressSourcePath.Location = new System.Drawing.Point(168, 336);
             this.textBoxCompressSourcePath.Name = "textBoxCompressSourcePath";
             this.textBoxCompressSourcePath.Size = new System.Drawing.Size(250, 20);
-            this.textBoxCompressSourcePath.TabIndex = 32;
+            this.textBoxCompressSourcePath.TabIndex = 11;
             // 
             // checkBoxCompressStatus
             // 
@@ -339,7 +342,7 @@
             this.checkBoxCompressStatus.Location = new System.Drawing.Point(168, 289);
             this.checkBoxCompressStatus.Name = "checkBoxCompressStatus";
             this.checkBoxCompressStatus.Size = new System.Drawing.Size(59, 17);
-            this.checkBoxCompressStatus.TabIndex = 31;
+            this.checkBoxCompressStatus.TabIndex = 9;
             this.checkBoxCompressStatus.Text = "Enable";
             this.checkBoxCompressStatus.UseVisualStyleBackColor = true;
             // 
@@ -362,7 +365,7 @@
             this.panelCompressIgnoreModal.Location = new System.Drawing.Point(87, 391);
             this.panelCompressIgnoreModal.Name = "panelCompressIgnoreModal";
             this.panelCompressIgnoreModal.Size = new System.Drawing.Size(346, 61);
-            this.panelCompressIgnoreModal.TabIndex = 40;
+            this.panelCompressIgnoreModal.TabIndex = 13;
             // 
             // textBoxCompressIgnoreFolders
             // 
@@ -370,7 +373,7 @@
             this.textBoxCompressIgnoreFolders.Location = new System.Drawing.Point(81, 32);
             this.textBoxCompressIgnoreFolders.Name = "textBoxCompressIgnoreFolders";
             this.textBoxCompressIgnoreFolders.Size = new System.Drawing.Size(249, 20);
-            this.textBoxCompressIgnoreFolders.TabIndex = 31;
+            this.textBoxCompressIgnoreFolders.TabIndex = 14;
             // 
             // labelCompressIgnoreFolders
             // 
@@ -388,7 +391,7 @@
             this.textBoxCompressTitle.Location = new System.Drawing.Point(168, 310);
             this.textBoxCompressTitle.Name = "textBoxCompressTitle";
             this.textBoxCompressTitle.Size = new System.Drawing.Size(250, 20);
-            this.textBoxCompressTitle.TabIndex = 42;
+            this.textBoxCompressTitle.TabIndex = 10;
             // 
             // labelCompressTitle
             // 
