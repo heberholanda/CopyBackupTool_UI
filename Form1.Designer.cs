@@ -27,13 +27,14 @@ namespace CopyBackupToolUI
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.buttonSchedules = new System.Windows.Forms.Button();
             this.buttonSaveConsole = new System.Windows.Forms.Button();
             this.buttonOutros = new System.Windows.Forms.Button();
             this.buttonConfigs = new System.Windows.Forms.Button();
             this.buttonRun = new System.Windows.Forms.Button();
-            this.consoleTextBox = new System.Windows.Forms.TextBox();
-            progressBar = new System.Windows.Forms.ProgressBar();
             progressBarPercentLabel = new System.Windows.Forms.Label();
+            progressBar = new System.Windows.Forms.ProgressBar();
+            this.consoleTextBox = new System.Windows.Forms.TextBox();
             this.trayMenuContextStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -75,6 +76,7 @@ namespace CopyBackupToolUI
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.buttonSchedules);
             this.splitContainer1.Panel1.Controls.Add(this.buttonSaveConsole);
             this.splitContainer1.Panel1.Controls.Add(this.buttonOutros);
             this.splitContainer1.Panel1.Controls.Add(this.buttonConfigs);
@@ -87,16 +89,30 @@ namespace CopyBackupToolUI
             this.splitContainer1.Panel2.Controls.Add(progressBar);
             this.splitContainer1.Panel2.Controls.Add(this.consoleTextBox);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(823, 274);
+            this.splitContainer1.Size = new System.Drawing.Size(823, 340);
             this.splitContainer1.SplitterDistance = 127;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+            // 
+            // buttonSchedules
+            // 
+            this.buttonSchedules.Image = ((System.Drawing.Image)(resources.GetObject("buttonSchedules.Image")));
+            this.buttonSchedules.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSchedules.Location = new System.Drawing.Point(6, 73);
+            this.buttonSchedules.Name = "buttonSchedules";
+            this.buttonSchedules.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.buttonSchedules.Size = new System.Drawing.Size(114, 60);
+            this.buttonSchedules.TabIndex = 5;
+            this.buttonSchedules.Text = "Schedules";
+            this.buttonSchedules.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSchedules.UseVisualStyleBackColor = true;
+            this.buttonSchedules.Click += new System.EventHandler(this.Schedules_Click);
             // 
             // buttonSaveConsole
             // 
             this.buttonSaveConsole.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveConsole.Image")));
             this.buttonSaveConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveConsole.Location = new System.Drawing.Point(6, 140);
+            this.buttonSaveConsole.Location = new System.Drawing.Point(6, 205);
             this.buttonSaveConsole.Name = "buttonSaveConsole";
             this.buttonSaveConsole.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
             this.buttonSaveConsole.Size = new System.Drawing.Size(114, 60);
@@ -110,7 +126,7 @@ namespace CopyBackupToolUI
             // 
             this.buttonOutros.Image = ((System.Drawing.Image)(resources.GetObject("buttonOutros.Image")));
             this.buttonOutros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOutros.Location = new System.Drawing.Point(6, 206);
+            this.buttonOutros.Location = new System.Drawing.Point(6, 271);
             this.buttonOutros.Name = "buttonOutros";
             this.buttonOutros.Padding = new System.Windows.Forms.Padding(5, 0, 25, 0);
             this.buttonOutros.Size = new System.Drawing.Size(114, 60);
@@ -124,7 +140,7 @@ namespace CopyBackupToolUI
             // 
             this.buttonConfigs.Image = ((System.Drawing.Image)(resources.GetObject("buttonConfigs.Image")));
             this.buttonConfigs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConfigs.Location = new System.Drawing.Point(7, 74);
+            this.buttonConfigs.Location = new System.Drawing.Point(6, 139);
             this.buttonConfigs.Name = "buttonConfigs";
             this.buttonConfigs.Padding = new System.Windows.Forms.Padding(5, 0, 15, 0);
             this.buttonConfigs.Size = new System.Drawing.Size(114, 60);
@@ -148,45 +164,41 @@ namespace CopyBackupToolUI
             this.buttonRun.UseVisualStyleBackColor = true;
             this.buttonRun.Click += new System.EventHandler(this.Run_Click);
             // 
-            // consoleTextBox
-            // 
-            this.consoleTextBox.Font = new System.Drawing.Font("Arial", 8F);
-            this.consoleTextBox.Location = new System.Drawing.Point(10, 7);
-            this.consoleTextBox.MaximumSize = new System.Drawing.Size(670, 230);
-            this.consoleTextBox.MaxLength = 230;
-            this.consoleTextBox.MinimumSize = new System.Drawing.Size(670, 230);
-            this.consoleTextBox.Multiline = true;
-            this.consoleTextBox.Name = "consoleTextBox";
-            this.consoleTextBox.ReadOnly = true;
-            this.consoleTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.consoleTextBox.Size = new System.Drawing.Size(670, 230);
-            this.consoleTextBox.TabIndex = 0;
-            this.consoleTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // progressBar
-            // 
-            progressBar.Location = new System.Drawing.Point(10, 243);
-            progressBar.Name = "progressBar";
-            progressBar.Size = new System.Drawing.Size(670, 23);
-            progressBar.TabIndex = 2;
-            //progressBar.Value = 1;
-
-            // 
             // progressBarPercentLabel
             // 
             progressBarPercentLabel.AutoSize = true;
-            progressBarPercentLabel.Location = new System.Drawing.Point(325, 248);
+            progressBarPercentLabel.BackColor = System.Drawing.Color.Transparent;
+            progressBarPercentLabel.Location = new System.Drawing.Point(325, 313);
             progressBarPercentLabel.Name = "progressBarPercentLabel";
             progressBarPercentLabel.Size = new System.Drawing.Size(21, 13);
             progressBarPercentLabel.TabIndex = 3;
             progressBarPercentLabel.Text = "0%";
-
+            // 
+            // progressBar
+            // 
+            progressBar.Location = new System.Drawing.Point(10, 308);
+            progressBar.Name = "progressBar";
+            progressBar.Size = new System.Drawing.Size(670, 23);
+            progressBar.TabIndex = 2;
+            // 
+            // consoleTextBox
+            // 
+            this.consoleTextBox.Font = new System.Drawing.Font("Arial", 8F);
+            this.consoleTextBox.Location = new System.Drawing.Point(10, 7);
+            this.consoleTextBox.MaxLength = 230;
+            this.consoleTextBox.Multiline = true;
+            this.consoleTextBox.Name = "consoleTextBox";
+            this.consoleTextBox.ReadOnly = true;
+            this.consoleTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.consoleTextBox.Size = new System.Drawing.Size(670, 295);
+            this.consoleTextBox.TabIndex = 0;
+            this.consoleTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 274);
+            this.ClientSize = new System.Drawing.Size(823, 340);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(839, 313);
@@ -217,6 +229,7 @@ namespace CopyBackupToolUI
         private Timer timer;
         private Button buttonOutros;
         private Button buttonSaveConsole;
+        private Button buttonSchedules;
         public static ProgressBar progressBar;
         public static Label progressBarPercentLabel;
     }

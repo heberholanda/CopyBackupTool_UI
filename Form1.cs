@@ -111,6 +111,12 @@ namespace CopyBackupToolUI
             Mylog.AddConsoleLog("[ Configs ]  Searching for configuration file...");
             Mylog.AddConsoleLog("[ Configs ]  Found this: "+ AppDomain.CurrentDomain.BaseDirectory + "\\" + run.ConfigFile);
         }
+        private void Schedules_Click(object sender, EventArgs e)
+        {
+            Console.Beep();
+            Form schedulesForm = new Schedules();
+            schedulesForm.ShowDialog();
+        }
         private void Console_Click(object sender, EventArgs e)
         {
             Console.Beep();
@@ -224,5 +230,6 @@ namespace CopyBackupToolUI
         {
 
         }
+
     }
 }
