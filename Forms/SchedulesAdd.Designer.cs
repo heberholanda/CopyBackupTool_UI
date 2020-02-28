@@ -176,6 +176,7 @@
             this.imageButtonZip.Margin = new System.Windows.Forms.Padding(0);
             this.imageButtonZip.Name = "imageButtonZip";
             this.imageButtonZip.Size = new System.Drawing.Size(64, 64);
+            this.imageButtonZip.TabIndex = 46;
             this.imageButtonZip.TabStop = false;
             this.imageButtonZip.UseVisualStyleBackColor = false;
             // 
@@ -186,7 +187,7 @@
             this.textBoxCopyPaste_SourcePath.Name = "textBoxCopyPaste_SourcePath";
             this.textBoxCopyPaste_SourcePath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCopyPaste_SourcePath.TabIndex = 5;
-            this.textBoxCopyPaste_SourcePath.Click += new System.EventHandler(this.textBoxCopyPaste_SourcePath_Click);
+            this.textBoxCopyPaste_SourcePath.DoubleClick += new System.EventHandler(this.textBoxCopyPaste_SourcePath_Click);
             // 
             // labelCopyPasteSourcePath
             // 
@@ -194,6 +195,7 @@
             this.labelCopyPasteSourcePath.Location = new System.Drawing.Point(100, 137);
             this.labelCopyPasteSourcePath.Name = "labelCopyPasteSourcePath";
             this.labelCopyPasteSourcePath.Size = new System.Drawing.Size(41, 13);
+            this.labelCopyPasteSourcePath.TabIndex = 45;
             this.labelCopyPasteSourcePath.Text = "Source";
             this.labelCopyPasteSourcePath.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -233,6 +235,7 @@
             this.textBoxCopyPasteDestinationPath.Name = "textBoxCopyPasteDestinationPath";
             this.textBoxCopyPasteDestinationPath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCopyPasteDestinationPath.TabIndex = 6;
+            this.textBoxCopyPasteDestinationPath.DoubleClick += new System.EventHandler(this.textBoxCopyPaste_DestinationPath_Click);
             // 
             // textBoxCopyPasteIgnoreFiles
             // 
@@ -315,6 +318,7 @@
             this.textBoxCompressDestinationPath.Name = "textBoxCompressDestinationPath";
             this.textBoxCompressDestinationPath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressDestinationPath.TabIndex = 12;
+            this.textBoxCompressDestinationPath.DoubleClick += new System.EventHandler(this.textBoxCompressDestinationPath_Click);
             // 
             // labelCompressSourcePath
             // 
@@ -333,6 +337,7 @@
             this.textBoxCompressSourcePath.Name = "textBoxCompressSourcePath";
             this.textBoxCompressSourcePath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressSourcePath.TabIndex = 11;
+            this.textBoxCompressSourcePath.DoubleClick += new System.EventHandler(this.textBoxCompressSourcePath_Click);
             // 
             // checkBoxCompressStatus
             // 
