@@ -49,10 +49,6 @@ namespace CopyBackupToolUI
             string[] _compressIgnoreFiles = this.textBoxCompressIgnoreFiles.Text.Split(',').ToArray();
             string[] _compressIgnoreFolders = this.textBoxCompressIgnoreFolders.Text.Split(',').ToArray();
         }
-        private void ConvertToStringList(string myString)
-        {
-
-        }
         private void Schedules_Load(object sender, EventArgs e)
         {
             
