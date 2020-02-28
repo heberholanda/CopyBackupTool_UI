@@ -33,16 +33,16 @@ namespace CopyBackupToolUI
 
             // Get Data
             var _title = this.textBoxTitle.Text;
-            var _status = Convert.ToBoolean(this.checkBoxStatus.Text);
+            var _status = this.checkBoxStatus.Checked;
 
-            var _copyPasteStatus = Convert.ToBoolean(this.checkBoxCopyPasteStatus.Text);
-            var _copyPasteOverwrite = Convert.ToBoolean(this.checkBoxCopyPasteOverwrite.Text);
+            var _copyPasteStatus = this.checkBoxCopyPasteStatus.Checked;
+            var _copyPasteOverwrite = this.checkBoxCopyPasteOverwrite.Checked;
             var _copyPasteSource = this.textBoxCopyPaste_SourcePath.Text;
             var _copyPasteDestination = this.textBoxCopyPasteDestinationPath.Text;
             string[] _copyPasteIgnoreFiles = this.textBoxCopyPasteIgnoreFiles.Text.Split(',').ToArray();
             string[] _copyPasteIgnoreFolders = this.textBoxCopyPasteIgnoreFolders.Text.Split(',').ToArray();
 
-            var _compressStatus = Convert.ToBoolean(this.checkBoxCompressStatus.Text);
+            var _compressStatus = this.checkBoxCompressStatus.Checked;
             var _compressTitle = this.textBoxCompressTitle.Text;
             var _compressSource = this.textBoxCompressSourcePath.Text;
             var _compressDestination = this.textBoxCompressDestinationPath.Text;
@@ -76,6 +76,7 @@ namespace CopyBackupToolUI
                 _myFileModel.Status = _status;
                 _myFileModel.CopyAndPaste = _myCopy;
                 _myFileModel.CompressFolder = _myCompress;
+
 
         }
         private void Schedules_Load(object sender, EventArgs e)
