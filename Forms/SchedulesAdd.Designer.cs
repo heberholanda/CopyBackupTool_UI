@@ -27,7 +27,7 @@
             this.checkBoxCopyPasteStatus = new System.Windows.Forms.CheckBox();
             this.labelCopyPasteStatus = new System.Windows.Forms.Label();
             this.imageButtonZip = new System.Windows.Forms.Button();
-            this.textBoxCopyPasteSourcePath = new System.Windows.Forms.TextBox();
+            this.textBoxCopyPaste_SourcePath = new System.Windows.Forms.TextBox();
             this.labelCopyPasteSourcePath = new System.Windows.Forms.Label();
             this.checkBoxCopyPasteOverwrite = new System.Windows.Forms.CheckBox();
             this.labelCopyPasteOverwrite = new System.Windows.Forms.Label();
@@ -176,19 +176,17 @@
             this.imageButtonZip.Margin = new System.Windows.Forms.Padding(0);
             this.imageButtonZip.Name = "imageButtonZip";
             this.imageButtonZip.Size = new System.Drawing.Size(64, 64);
-            this.imageButtonZip.TabIndex = 30;
             this.imageButtonZip.TabStop = false;
             this.imageButtonZip.UseVisualStyleBackColor = false;
             // 
-            // textBoxCopyPasteSourcePath
+            // textBoxCopyPaste_SourcePath
             // 
-            this.textBoxCopyPasteSourcePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCopyPasteSourcePath.Location = new System.Drawing.Point(176, 134);
-            this.textBoxCopyPasteSourcePath.Name = "textBoxCopyPasteSourcePath";
-            this.textBoxCopyPasteSourcePath.Size = new System.Drawing.Size(250, 20);
-            this.textBoxCopyPasteSourcePath.TabIndex = 5;
-            this.textBoxCopyPasteSourcePath.Click += new System.EventHandler(this.textBox_Click);
-            this.textBoxCopyPasteSourcePath.TextChanged += new System.EventHandler(this.textBoxCopyPasteSourcePath_TextChanged);
+            this.textBoxCopyPaste_SourcePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCopyPaste_SourcePath.Location = new System.Drawing.Point(176, 134);
+            this.textBoxCopyPaste_SourcePath.Name = "textBoxCopyPaste_SourcePath";
+            this.textBoxCopyPaste_SourcePath.Size = new System.Drawing.Size(250, 20);
+            this.textBoxCopyPaste_SourcePath.TabIndex = 5;
+            this.textBoxCopyPaste_SourcePath.Click += new System.EventHandler(this.textBoxCopyPaste_SourcePath_Click);
             // 
             // labelCopyPasteSourcePath
             // 
@@ -196,7 +194,6 @@
             this.labelCopyPasteSourcePath.Location = new System.Drawing.Point(100, 137);
             this.labelCopyPasteSourcePath.Name = "labelCopyPasteSourcePath";
             this.labelCopyPasteSourcePath.Size = new System.Drawing.Size(41, 13);
-            this.labelCopyPasteSourcePath.TabIndex = 22;
             this.labelCopyPasteSourcePath.Text = "Source";
             this.labelCopyPasteSourcePath.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -473,7 +470,7 @@
             this.Controls.Add(this.checkBoxCopyPasteOverwrite);
             this.Controls.Add(this.labelCopyPasteOverwrite);
             this.Controls.Add(this.labelCopyPasteSourcePath);
-            this.Controls.Add(this.textBoxCopyPasteSourcePath);
+            this.Controls.Add(this.textBoxCopyPaste_SourcePath);
             this.Controls.Add(this.imageButtonZip);
             this.Controls.Add(this.checkBoxCopyPasteStatus);
             this.Controls.Add(this.labelCopyPasteStatus);
@@ -514,7 +511,7 @@
         private System.Windows.Forms.CheckBox checkBoxCopyPasteStatus;
         private System.Windows.Forms.Label labelCopyPasteStatus;
         private System.Windows.Forms.Button imageButtonZip;
-        private System.Windows.Forms.TextBox textBoxCopyPasteSourcePath;
+        private System.Windows.Forms.TextBox textBoxCopyPaste_SourcePath;
         private System.Windows.Forms.Label labelCopyPasteSourcePath;
         private System.Windows.Forms.CheckBox checkBoxCopyPasteOverwrite;
         private System.Windows.Forms.Label labelCopyPasteOverwrite;
