@@ -133,27 +133,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="TEST\Folder1\Another\1 file.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TEST\Folder1\1 file.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TEST\Folder1\2 file.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TEST\Folder1\3 file.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TEST\Folder1\4 file.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TEST\Folder1\5 file.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TEST\Folder1\Inside\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Files\appIcon.png" />
     <Content Include="Files\arquivos-e-pastas.png" />
