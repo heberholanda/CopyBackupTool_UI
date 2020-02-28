@@ -152,7 +152,6 @@
     <None Include="TEST\Folder1\5 file.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
     <Folder Include="TEST\Folder1\Inside\" />
   </ItemGroup>
   <ItemGroup>
