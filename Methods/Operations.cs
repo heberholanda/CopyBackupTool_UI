@@ -73,7 +73,7 @@ namespace CopyBackupToolUI
                 using (Ionic.Zip.ZipFile zip = new Ionic.Zip.ZipFile())
                 {
                     this.Progress++;
-                    Form1.ProgressBarUpdate(this.Progress);
+                    Painel.ProgressBarUpdate(this.Progress);
 
                     string _dateNow = DateTime.Now.ToString("dd-MM-yyyy HH-mm");
                     zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
@@ -142,7 +142,7 @@ namespace CopyBackupToolUI
             string[] directories = Directory.GetDirectories(copy.SourcePath, "*.*", SearchOption.AllDirectories);
             string[] files = Directory.GetFiles(copy.SourcePath, "*.*", SearchOption.AllDirectories);
             this.ProgressMaxValue = (directories.Length + files.Length + 1);
-            Form1.progressBar.Maximum = this.ProgressMaxValue;
+            Painel.progressBar.Maximum = this.ProgressMaxValue;
 
             // Folders
             try
@@ -150,7 +150,7 @@ namespace CopyBackupToolUI
                 _ = Parallel.ForEach(directories, currentPath =>
                 {
                     this.Progress++;
-                    Form1.ProgressBarUpdate(this.Progress);
+                    Painel.ProgressBarUpdate(this.Progress);
 
                     string _folderNow = currentPath.Replace(copy.SourcePath + "\\", "");
                     var _folderIgnoreCheck = copy.Ignore.GetFolders().FirstOrDefault(x => x == _folderNow);
@@ -197,7 +197,7 @@ namespace CopyBackupToolUI
                 Parallel.ForEach(files, newPath =>
                 {
                     this.Progress++;
-                    Form1.ProgressBarUpdate(this.Progress);
+                    Painel.ProgressBarUpdate(this.Progress);
 
                     var _fileNow = newPath.Replace(copy.SourcePath + "\\", "");
                     var _fileIgnoreCheck = copy.Ignore.GetFiles().FirstOrDefault(x => x == _fileNow);

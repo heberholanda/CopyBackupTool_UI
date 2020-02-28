@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace CopyBackupToolUI
 {
-    partial class Form1
+    partial class Painel
     {
         private System.ComponentModel.IContainer components = null;
         protected override void Dispose(bool disposing)
@@ -21,7 +21,7 @@ namespace CopyBackupToolUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Painel));
             this.trayMenuContextStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);

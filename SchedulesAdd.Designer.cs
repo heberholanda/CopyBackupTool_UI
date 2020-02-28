@@ -1,6 +1,6 @@
 ﻿namespace CopyBackupToolUI
 {
-    partial class Schedules
+    partial class SchedulesAdd
     {
         private System.ComponentModel.IContainer components = null;
         protected override void Dispose(bool disposing)
@@ -15,7 +15,7 @@
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedules));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SchedulesAdd));
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
@@ -188,6 +188,7 @@
             this.textBoxCopyPasteSourcePath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCopyPasteSourcePath.TabIndex = 5;
             this.textBoxCopyPasteSourcePath.Click += new System.EventHandler(this.textBox_Click);
+            this.textBoxCopyPasteSourcePath.TextChanged += new System.EventHandler(this.textBoxCopyPasteSourcePath_TextChanged);
             // 
             // labelCopyPasteSourcePath
             // 
@@ -446,7 +447,7 @@
             this.labelCompressMode.TabIndex = 46;
             this.labelCompressMode.Text = "Compress Mode";
             // 
-            // Schedules
+            // SchedulesAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -488,8 +489,8 @@
             this.Controls.Add(this.labelCopyAndPaste);
             this.Controls.Add(this.labelCompressMode);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Schedules";
-            this.Text = "Schedules";
+            this.Name = "SchedulesAdd";
+            this.Text = "Schedules Add";
             this.Load += new System.EventHandler(this.Schedules_Load);
             this.panelCopyPasteIgnoreModal.ResumeLayout(false);
             this.panelCopyPasteIgnoreModal.PerformLayout();

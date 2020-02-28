@@ -6,14 +6,14 @@ using System.Windows.Forms;
 
 namespace CopyBackupToolUI
 {
-    public partial class Form1 : Form
+    public partial class Painel : Form
     {
         public bool Terminating = false;
         public static Operations run { get; set; }
-        public static Form1 MyForm;
+        public static Painel MyForm;
         public ConsoleLog Mylog;
 
-        public Form1()
+        public Painel()
         {
             InitializeComponent();
             Mylog = new ConsoleLog(consoleTextBox);
@@ -114,7 +114,7 @@ namespace CopyBackupToolUI
         private void Schedules_Click(object sender, EventArgs e)
         {
             Console.Beep();
-            Form schedulesForm = new Schedules();
+            Form schedulesForm = new SchedulesAdd();
             schedulesForm.ShowDialog();
         }
         private void Console_Click(object sender, EventArgs e)

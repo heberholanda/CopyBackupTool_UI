@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace CopyBackupToolUI
 {
-    public partial class Schedules : Form
+    public partial class SchedulesAdd : Form
     {
-        public Schedules()
+        public SchedulesAdd()
         {
             InitializeComponent();
         }
@@ -36,6 +36,11 @@ namespace CopyBackupToolUI
         }
 
         private void button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxCopyPasteSourcePath_TextChanged(object sender, EventArgs e)
         {
 
         }
