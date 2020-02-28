@@ -48,6 +48,35 @@ namespace CopyBackupToolUI
             var _compressDestination = this.textBoxCompressDestinationPath.Text;
             string[] _compressIgnoreFiles = this.textBoxCompressIgnoreFiles.Text.Split(',').ToArray();
             string[] _compressIgnoreFolders = this.textBoxCompressIgnoreFolders.Text.Split(',').ToArray();
+
+            // Create Models
+            Ignore _myCopyIgnoreCopy = new Ignore();
+                _myCopyIgnoreCopy.Files = _copyPasteIgnoreFiles;
+                _myCopyIgnoreCopy.Folders = _copyPasteIgnoreFolders;
+        
+            Ignore _myCopyIgnoreCompress = new Ignore();
+                _myCopyIgnoreCompress.Files = _compressIgnoreFiles;
+                _myCopyIgnoreCompress.Folders = _compressIgnoreFolders;
+
+            CopyAndPaste _myCopy = new CopyAndPaste();
+                _myCopy.Status = _copyPasteStatus;
+                _myCopy.Overwrite = _copyPasteOverwrite;
+                _myCopy.SourcePath = _copyPasteSource;
+                _myCopy.DestinationPath = _copyPasteDestination;
+                _myCopy.Ignore = _myCopyIgnoreCopy;
+
+            CompressFolder _myCompress = new CompressFolder();
+                _myCompress.Status = _compressStatus;
+                _myCompress.ZipFileName = _compressTitle;
+                _myCompress.SourcePath = _compressSource;
+                _myCompress.MoveToPath = _compressDestination;
+
+            FileModel _myFileModel = new FileModel();
+                _myFileModel.Title = _title.ToString();
+                _myFileModel.Status = _status;
+                _myFileModel.CopyAndPaste = _myCopy;
+                _myFileModel.CompressFolder = _myCompress;
+
         }
         private void Schedules_Load(object sender, EventArgs e)
         {
