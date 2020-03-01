@@ -1,5 +1,4 @@
-﻿using CopyBackupToolUI_NS;
-using System.Collections.Generic;
+﻿using CopyBackupToolUI.Models;
 
 namespace CopyBackupToolUI
 {

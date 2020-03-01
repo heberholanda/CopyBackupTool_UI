@@ -75,7 +75,7 @@ namespace CopyBackupToolUI.Forms {
         /// </summary>
         public static System.Drawing.Bitmap buttonOutros_Image {
             get {
-                object obj = ResourceManager.GetObject("buttonOutros.Image", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonClear.Image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

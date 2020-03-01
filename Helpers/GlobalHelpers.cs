@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 
-namespace CopyBackupToolUI_NS
+namespace CopyBackupToolUI.Helpers
 {
-    public static class HelpersStatic
+    public static class GlobalHelpers
     {
         public static bool FileExists(string valuePath)
         {

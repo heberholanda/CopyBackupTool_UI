@@ -1,7 +1,7 @@
-﻿using CopyBackupToolUI.Models;
-using CopyBackupToolUI_NS;
+﻿using CopyBackupToolUI.Helpers;
+using CopyBackupToolUI.Models;
 using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CopyBackupToolUI
@@ -10,15 +10,12 @@ namespace CopyBackupToolUI
     {
         public bool Terminating = false;
         public static Operations run { get; set; }
-        public static Painel MyForm;
-        public ConsoleLog Mylog;
 
         public Painel()
         {
             InitializeComponent();
-            Mylog = new ConsoleLog(consoleTextBox);
-            run = new Operations(Mylog);
-            MyForm = this;
+            ConfigFileHelper.Load();
+            run = new Operations();
         }
 
         //          Custon          //
@@ -61,7 +58,7 @@ namespace CopyBackupToolUI
                 e.Cancel = true;
 
                 // Dispose of the tray icon this way.
-                this.notifyIcon.Dispose();
+                notifyIcon.Dispose();
 
                 // Set the termination flag so that the next entry into this event will
                 // not be cancelled.
@@ -79,37 +76,37 @@ namespace CopyBackupToolUI
             Console.Beep();
 
             // ProgressBar
-            ProgressBarReset();
-            run.Progress = 0;
-            run.ProgressMaxValue = 1;
+            ProgressBarHelper.Reset();
 
-            foreach (var config in run.JsonFileConfigs)
+            // Run Configs
+            foreach (var config in ConfigFileHelper.JsonFileConfigs)
             {
                 if (config.Status)
                 {
                     var _msg = "\n[ " + config.Title + " ] Starting...";
-                    ShowNotifyMsg("CopyBackup Tool", _msg);
-                    Mylog.AddConsoleLog(_msg);
+                    NotifyMessageSend("CopyBackup Tool", _msg);
+                    ConsoleLogHelper.Add(_msg);
 
                     run.CompressFolder(config.CompressFolder);
                     run.CopyAndPaste(config.CopyAndPaste);
 
                     var _msg2 = "[ " + config.Title + " ] Finished!\n";
-                    Mylog.AddConsoleLog(_msg2);
-                    ShowNotifyMsg("CopyBackup Tool", _msg2);
+                    ConsoleLogHelper.Add(_msg2);
+                    NotifyMessageSend("CopyBackup Tool", _msg2);
                 }
                 else
                 {
-                    Mylog.AddConsoleLog("\n[ "+ config.Title + " ] Not enabled. Status: "+config.Status);
+                    ConsoleLogHelper.Add("\n[ "+ config.Title + " ] Not enabled. Status: "+config.Status);
                 }
             }
-            Mylog.AddConsoleLog("\nMy work is done!");
+            ConsoleLogHelper.Add("\nMy work is done!");
+            ConsoleLogHelper.Add("\nProgress: "+ ProgressBarHelper.Progress + "  ProgressMaxValue: "+ ProgressBarHelper.ProgressMaxValue);
         }
         private void Configs_Click(object sender, EventArgs e)
         {
             Console.Beep();
-            Mylog.AddConsoleLog("[ Configs ]  Searching for configuration file...");
-            Mylog.AddConsoleLog("[ Configs ]  Found this: "+ AppDomain.CurrentDomain.BaseDirectory + "\\" + run.ConfigFile);
+            ConsoleLogHelper.Add("[ Configs ]  Searching for configuration file...");
+            ConsoleLogHelper.Add("[ Configs ]  Path: "+ ConfigFileHelper.ConfigFull);
         }
         private void Schedules_Click(object sender, EventArgs e)
         {
@@ -120,20 +117,21 @@ namespace CopyBackupToolUI
         private void Console_Click(object sender, EventArgs e)
         {
             Console.Beep();
-            Mylog.AddConsoleLog("[ Console ]  Teste Console");
+            ConsoleLogHelper.Add("[ Console ]  Teste Console");
         }
         private void Clear_Click(object sender, EventArgs e)
         {
             Console.Beep();
-            Mylog.ClearConsoleLog();
-            Mylog.AddConsoleLog("[ Console ]  Clean Console Log!");
+            ConsoleLogHelper.Clear();
+            ConsoleLogHelper.Add("[ Console ]  Clean Console Log!");
         }
         private void ConsoleSave_Click(object sender, EventArgs e)
         {
             Console.Beep();
-            var _log = Mylog.SaveConsoleLog();
-            Mylog.AddConsoleLog("[ Log ]  Saved! " + _log);
+            var _log = ConsoleLogHelper.Save();
+            ConsoleLogHelper.Add("[ Log ]  Saved! " + _log);
         }
+            // Progress Bar
         public static void ProgressBarUpdate(int value)
         {
             var _maxValue = (run.ProgressMaxValue == 1) ? 100: run.ProgressMaxValue;
@@ -148,7 +146,7 @@ namespace CopyBackupToolUI
             progressBarPercentLabel.Text = 0 + "%";
             run.ProgressMaxValue = 0;
         }
-        // Views
+            // NotifyHelper Icon
         private void Tray_Options_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             var caseSwitch = e.ClickedItem.Text;
@@ -164,7 +162,6 @@ namespace CopyBackupToolUI
                     break;
             }
         }
-            // Notify Icon
         private void NotifyIcon_DoubleClick(object sender, EventArgs e)
         {
             var _forms = Application.OpenForms;
@@ -181,29 +178,13 @@ namespace CopyBackupToolUI
                 break;
             }
         }
-        public void SendConsoleMsg(string msg, string title = "", bool status = false)
-        {
-            var _dateTimeNow = DateTime.Now.ToString("dd/MM/yyyy H:mm:ss");
-            this.consoleTextBox.Text = string.Concat(this.consoleTextBox.Text, _dateTimeNow + ( (title.Length > 0) ?  " [ " + title + " ]  " : " ") + msg + Environment.NewLine);
-        }
-
         //          Others          //
-        protected void ShowNotifyMsg(string tipTitle, string tipText, int time = 1)
+        protected void NotifyMessageSend(string tipTitle, string tipText, int time = 1)
         {
-            try
-            {
-                notifyIcon.Visible = true;
-                notifyIcon.BalloonTipTitle = tipTitle;
-                notifyIcon.BalloonTipText = tipText;
-                notifyIcon.ShowBalloonTip(time);
-            }
-            catch (Exception ex)
-            {
-            }
-        }
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            notifyIcon.Visible = true;
+            notifyIcon.BalloonTipTitle = tipTitle;
+            notifyIcon.BalloonTipText = tipText;
+            notifyIcon.ShowBalloonTip(time);
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -211,25 +192,5 @@ namespace CopyBackupToolUI
             timer.Enabled = false;
             this.Close();
         }
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        private void eventLog1_EntryWritten(object sender, System.Diagnostics.EntryWrittenEventArgs e)
-        {
-
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
     }
 }

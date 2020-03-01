@@ -1,4 +1,4 @@
-﻿namespace CopyBackupToolUI_NS
+﻿namespace CopyBackupToolUI.Models
 {
     public class CompressFolder
     {
