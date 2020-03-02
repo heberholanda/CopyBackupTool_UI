@@ -84,6 +84,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Painel.resx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Schedules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Schedules.Designer.cs">
+      <DependentUpon>Schedules.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\ConfigFileHelper.cs" />
     <Compile Include="Helpers\GlobalHelpers.cs" />
     <Compile Include="Helpers\ConsoleLogHelper.cs" />
@@ -107,6 +113,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Painel1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Schedules.resx">
+      <DependentUpon>Schedules.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -122,6 +131,7 @@
     </EmbeddedResource>
     <None Include="ConfigurationFile.json" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CopyBackupToolUI.Models.FileModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -63,9 +63,9 @@ namespace CopyBackupToolUI.Forms {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonConfigs_Image {
+        public static System.Drawing.Bitmap buttonClear_Image {
             get {
-                object obj = ResourceManager.GetObject("buttonConfigs.Image", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonClear.Image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace CopyBackupToolUI.Forms {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap buttonOutros_Image {
+        public static System.Drawing.Bitmap buttonConfigs_Image {
             get {
-                object obj = ResourceManager.GetObject("buttonClear.Image", resourceCulture);
+                object obj = ResourceManager.GetObject("buttonConfigs.Image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

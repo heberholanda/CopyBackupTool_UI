@@ -21,7 +21,7 @@ namespace CopyBackupToolUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Painel));
             this.trayMenuContextStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.buttonSchedules = new System.Windows.Forms.Button();
@@ -54,11 +54,11 @@ namespace CopyBackupToolUI
             // 
             // notifyIcon
             // 
-            notifyIcon.ContextMenuStrip = this.trayMenuContextStrip;
-            notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            notifyIcon.Text = "CopyBackup Tool";
-            notifyIcon.Visible = true;
-            notifyIcon.DoubleClick += new System.EventHandler(this.NotifyIcon_DoubleClick);
+            this.notifyIcon.ContextMenuStrip = this.trayMenuContextStrip;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "CopyBackup Tool";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.DoubleClick += new System.EventHandler(this.NotifyIcon_DoubleClick);
             // 
             // timer
             // 
@@ -69,7 +69,6 @@ namespace CopyBackupToolUI
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.TabStop = false;
             // 
             // splitContainer1.Panel1
             // 
@@ -86,21 +85,9 @@ namespace CopyBackupToolUI
             this.splitContainer1.Panel2.Controls.Add(consoleTextBox);
             this.splitContainer1.Size = new System.Drawing.Size(823, 340);
             this.splitContainer1.SplitterDistance = 127;
+            this.splitContainer1.TabIndex = 1;
+            this.splitContainer1.TabStop = false;
             // 
-            // buttonRun
-            // 
-            this.buttonRun.Image = ((System.Drawing.Image)(resources.GetObject("buttonRun.Image")));
-            this.buttonRun.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRun.Location = new System.Drawing.Point(7, 7);
-            this.buttonRun.Name = "buttonRun";
-            this.buttonRun.Padding = new System.Windows.Forms.Padding(5, 0, 25, 0);
-            this.buttonRun.Size = new System.Drawing.Size(114, 60);
-            this.buttonRun.TabIndex = 0;
-            this.buttonRun.Text = "Run";
-            this.buttonRun.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonRun.UseVisualStyleBackColor = true;
-            this.buttonRun.Click += new System.EventHandler(this.Run_Click);
-            //
             // buttonSchedules
             // 
             this.buttonSchedules.Image = ((System.Drawing.Image)(resources.GetObject("buttonSchedules.Image")));
@@ -114,20 +101,6 @@ namespace CopyBackupToolUI
             this.buttonSchedules.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSchedules.UseVisualStyleBackColor = true;
             this.buttonSchedules.Click += new System.EventHandler(this.Schedules_Click);
-            // 
-            // buttonConfigs
-            // 
-            this.buttonConfigs.Image = ((System.Drawing.Image)(resources.GetObject("buttonConfigs.Image")));
-            this.buttonConfigs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConfigs.Location = new System.Drawing.Point(6, 139);
-            this.buttonConfigs.Name = "buttonConfigs";
-            this.buttonConfigs.Padding = new System.Windows.Forms.Padding(5, 0, 15, 0);
-            this.buttonConfigs.Size = new System.Drawing.Size(114, 60);
-            this.buttonConfigs.TabIndex = 2;
-            this.buttonConfigs.Text = "Configs";
-            this.buttonConfigs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonConfigs.UseVisualStyleBackColor = true;
-            this.buttonConfigs.Click += new System.EventHandler(this.Configs_Click);
             // 
             // buttonSaveConsole
             // 
@@ -157,6 +130,34 @@ namespace CopyBackupToolUI
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.Clear_Click);
             // 
+            // buttonConfigs
+            // 
+            this.buttonConfigs.Image = ((System.Drawing.Image)(resources.GetObject("buttonConfigs.Image")));
+            this.buttonConfigs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonConfigs.Location = new System.Drawing.Point(6, 139);
+            this.buttonConfigs.Name = "buttonConfigs";
+            this.buttonConfigs.Padding = new System.Windows.Forms.Padding(5, 0, 15, 0);
+            this.buttonConfigs.Size = new System.Drawing.Size(114, 60);
+            this.buttonConfigs.TabIndex = 2;
+            this.buttonConfigs.Text = "Configs";
+            this.buttonConfigs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonConfigs.UseVisualStyleBackColor = true;
+            this.buttonConfigs.Click += new System.EventHandler(this.Configs_Click);
+            // 
+            // buttonRun
+            // 
+            this.buttonRun.Image = ((System.Drawing.Image)(resources.GetObject("buttonRun.Image")));
+            this.buttonRun.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRun.Location = new System.Drawing.Point(7, 7);
+            this.buttonRun.Name = "buttonRun";
+            this.buttonRun.Padding = new System.Windows.Forms.Padding(5, 0, 25, 0);
+            this.buttonRun.Size = new System.Drawing.Size(114, 60);
+            this.buttonRun.TabIndex = 0;
+            this.buttonRun.Text = "Run";
+            this.buttonRun.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonRun.UseVisualStyleBackColor = true;
+            this.buttonRun.Click += new System.EventHandler(this.Run_Click);
+            // 
             // progressBarPercentLabel
             // 
             progressBarPercentLabel.AutoSize = true;
@@ -164,6 +165,7 @@ namespace CopyBackupToolUI
             progressBarPercentLabel.Location = new System.Drawing.Point(325, 313);
             progressBarPercentLabel.Name = "progressBarPercentLabel";
             progressBarPercentLabel.Size = new System.Drawing.Size(21, 13);
+            progressBarPercentLabel.TabIndex = 0;
             progressBarPercentLabel.Text = "0%";
             // 
             // progressBar
@@ -171,6 +173,7 @@ namespace CopyBackupToolUI
             progressBar.Location = new System.Drawing.Point(10, 308);
             progressBar.Name = "progressBar";
             progressBar.Size = new System.Drawing.Size(670, 23);
+            progressBar.TabIndex = 1;
             // 
             // consoleTextBox
             // 
@@ -182,9 +185,10 @@ namespace CopyBackupToolUI
             consoleTextBox.ReadOnly = true;
             consoleTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             consoleTextBox.Size = new System.Drawing.Size(670, 295);
+            consoleTextBox.TabIndex = 2;
             consoleTextBox.TabStop = false;
             // 
-            // Form1
+            // Painel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -192,7 +196,7 @@ namespace CopyBackupToolUI
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(839, 313);
-            this.Name = "Form1";
+            this.Name = "Painel";
             this.Text = "CopyBackup Tool - GUI";
             this.Load += new System.EventHandler(this.Form_Load_Tray);
             this.Resize += new System.EventHandler(this.Form_Resize);
@@ -211,15 +215,15 @@ namespace CopyBackupToolUI
         private SplitContainer splitContainer1;
         private Button buttonConfigs;
         private Button buttonRun;
-        public static TextBox consoleTextBox;
 
         private ContextMenuStrip trayMenuContextStrip;
         private ToolStripSeparator toolStripMenuItem;
-        private static NotifyIcon notifyIcon;
         private Timer timer;
         private Button buttonClear;
         private Button buttonSaveConsole;
         private Button buttonSchedules;
+        public static TextBox consoleTextBox;
+        private NotifyIcon notifyIcon;
         public static ProgressBar progressBar;
         public static Label progressBarPercentLabel;
     }

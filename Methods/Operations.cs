@@ -32,7 +32,7 @@ namespace CopyBackupToolUI
                 {
                     //this.Progress++;
                     //Painel.ProgressBarUpdate(this.Progress);
-                    //ProgressBarHelper.Update();
+                    //ProgressBarHelper.DataGridViewTextBoxColumn_Update();
 
                     string _dateNow = DateTime.Now.ToString("dd-MM-yyyy HH-mm");
                     zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;

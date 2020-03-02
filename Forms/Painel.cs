@@ -1,4 +1,5 @@
-﻿using CopyBackupToolUI.Helpers;
+﻿using CopyBackupToolUI.Forms;
+using CopyBackupToolUI.Helpers;
 using CopyBackupToolUI.Models;
 using System;
 using System.Collections.Generic;
@@ -111,8 +112,11 @@ namespace CopyBackupToolUI
         private void Schedules_Click(object sender, EventArgs e)
         {
             Console.Beep();
-            Form schedulesForm = new SchedulesAdd();
-            schedulesForm.ShowDialog();
+            Form schedulesListForm = new Schedules();
+            schedulesListForm.ShowDialog();
+
+            //Form schedulesForm = new SchedulesAdd();
+            //schedulesForm.ShowDialog();
         }
         private void Console_Click(object sender, EventArgs e)
         {

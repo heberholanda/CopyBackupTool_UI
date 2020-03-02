@@ -7,9 +7,15 @@ namespace CopyBackupToolUI
 {
     public partial class SchedulesAdd : Form
     {
+        FileModel _config = new FileModel();
         public SchedulesAdd()
         {
             InitializeComponent();
+        }
+        public SchedulesAdd(FileModel config)
+        {
+            InitializeComponent();
+            _config = config;
         }
 
         public string GetFolderPath()
@@ -81,7 +87,32 @@ namespace CopyBackupToolUI
         }
         private void Schedules_Load(object sender, EventArgs e)
         {
-            
+            try
+            {
+                // Load by DataGrid
+                this.textBoxTitle.Text = _config.Title;
+                this.checkBoxStatus.Checked = _config.Status;
+
+                /*
+                this.checkBoxCopyPasteStatus.Checked = _config.CopyAndPaste.Status;
+                this.checkBoxCopyPasteOverwrite.Checked = _config.CopyAndPaste.Overwrite;
+                this.textBoxCopyPaste_SourcePath.Text = _config.CopyAndPaste.SourcePath;
+                this.textBoxCopyPasteDestinationPath.Text = _config.CopyAndPaste.DestinationPath;
+                this.textBoxCopyPasteIgnoreFiles.Text = _config.CopyAndPaste.Ignore.Files.ToString();
+                this.textBoxCopyPasteIgnoreFolders.Text = _config.CopyAndPaste.Ignore.Folders.ToString();
+
+                this.checkBoxCompressStatus.Checked = _config.CompressFolder.Status;
+                this.textBoxCompressTitle.Text = _config.CompressFolder.ZipFileName;
+                this.textBoxCompressSourcePath.Text = _config.CompressFolder.SourcePath;
+                this.textBoxCompressDestinationPath.Text = _config.CompressFolder.MoveToPath;
+                this.textBoxCompressIgnoreFiles.Text = _config.CompressFolder.Ignore.Files.ToString();
+                this.textBoxCompressIgnoreFolders.Text = _config.CompressFolder.Ignore.Folders.ToString();
+                */
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void textBoxCopyPaste_SourcePath_Click(object sender, EventArgs e){   this.textBoxCopyPaste_SourcePath.Text = GetFolderPath();    }
         private void textBoxCopyPaste_DestinationPath_Click(object sender, EventArgs e){   this.textBoxCopyPasteDestinationPath.Text = GetFolderPath();    }
