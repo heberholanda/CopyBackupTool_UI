@@ -1,4 +1,5 @@
-﻿using CopyBackupToolUI.Models;
+﻿using CopyBackupToolUI.Helpers;
+using CopyBackupToolUI.Models;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -92,22 +93,20 @@ namespace CopyBackupToolUI
                 // Load by DataGrid
                 this.textBoxTitle.Text = _config.Title;
                 this.checkBoxStatus.Checked = _config.Status;
-
-                /*
+               
                 this.checkBoxCopyPasteStatus.Checked = _config.CopyAndPaste.Status;
                 this.checkBoxCopyPasteOverwrite.Checked = _config.CopyAndPaste.Overwrite;
                 this.textBoxCopyPaste_SourcePath.Text = _config.CopyAndPaste.SourcePath;
                 this.textBoxCopyPasteDestinationPath.Text = _config.CopyAndPaste.DestinationPath;
-                this.textBoxCopyPasteIgnoreFiles.Text = _config.CopyAndPaste.Ignore.Files.ToString();
-                this.textBoxCopyPasteIgnoreFolders.Text = _config.CopyAndPaste.Ignore.Folders.ToString();
+                this.textBoxCopyPasteIgnoreFiles.Text = GlobalHelpers.ConvertStringArrayToString(_config.CopyAndPaste.Ignore.Files);
+                this.textBoxCopyPasteIgnoreFolders.Text = GlobalHelpers.ConvertStringArrayToString(_config.CopyAndPaste.Ignore.Folders);
 
                 this.checkBoxCompressStatus.Checked = _config.CompressFolder.Status;
                 this.textBoxCompressTitle.Text = _config.CompressFolder.ZipFileName;
                 this.textBoxCompressSourcePath.Text = _config.CompressFolder.SourcePath;
                 this.textBoxCompressDestinationPath.Text = _config.CompressFolder.MoveToPath;
-                this.textBoxCompressIgnoreFiles.Text = _config.CompressFolder.Ignore.Files.ToString();
-                this.textBoxCompressIgnoreFolders.Text = _config.CompressFolder.Ignore.Folders.ToString();
-                */
+                this.textBoxCompressIgnoreFiles.Text = GlobalHelpers.ConvertStringArrayToString(_config.CompressFolder.Ignore.Files);
+                this.textBoxCompressIgnoreFolders.Text = GlobalHelpers.ConvertStringArrayToString(_config.CompressFolder.Ignore.Folders);
             }
             catch (Exception ex)
             {

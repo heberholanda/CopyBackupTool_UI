@@ -27,5 +27,9 @@ namespace CopyBackupToolUI.Helpers
                     .Replace("\\r", "")
                     .Replace("\\n", "");
         }
+        public static string ConvertStringArrayToString(string[] array)
+        {
+            return string.Join(", ", array);
+        }
     }
 }

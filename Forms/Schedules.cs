@@ -39,27 +39,39 @@ namespace CopyBackupToolUI.Forms
 
         private void redirectToUpdateForm(int row)
         {
-            FileModel _fileConfig = new FileModel();
+            FileModel _myConfig = dataGridViewSchedulesConfigs.Rows[row].DataBoundItem as FileModel;
 
-            _fileConfig.Title = dataGridViewSchedulesConfigs.Rows[row].Cells[0].Value.ToString();
-            _fileConfig.Status = Convert.ToBoolean(dataGridViewSchedulesConfigs.Rows[row].Cells[1].Value);
+            FileModel _fileConfigModel = new FileModel
+            {
+                Title = _myConfig.Title,
+                Status = _myConfig.Status,
+                CopyAndPaste = new CopyAndPaste
+                {
+                    Status = _myConfig.CopyAndPaste.Status,
+                    Overwrite = _myConfig.CopyAndPaste.Overwrite,
+                    SourcePath = _myConfig.CopyAndPaste.SourcePath,
+                    DestinationPath = _myConfig.CopyAndPaste.DestinationPath,
+                    Ignore = new Ignore()
+                    {
+                        Files = _myConfig.CopyAndPaste.Ignore.Files,
+                        Folders = _myConfig.CopyAndPaste.Ignore.Folders
+                    }
+                },
+                CompressFolder = new CompressFolder
+                {
+                    Status = _myConfig.CompressFolder.Status,
+                    ZipFileName = _myConfig.CompressFolder.ZipFileName,
+                    SourcePath = _myConfig.CompressFolder.SourcePath,
+                    MoveToPath = _myConfig.CompressFolder.MoveToPath,
+                    Ignore = new Ignore()
+                    {
+                        Files = _myConfig.CompressFolder.Ignore.Files,
+                        Folders = _myConfig.CompressFolder.Ignore.Folders
+                    }
+                }
+            };
 
-            /*
-            _fileConfig.CopyAndPaste.Status = ConfigFileHelper.JsonFileConfigs[row].CopyAndPaste.Status;
-            _fileConfig.CopyAndPaste.Overwrite = ConfigFileHelper.JsonFileConfigs[row].CopyAndPaste.Overwrite;
-            _fileConfig.CopyAndPaste.SourcePath = ConfigFileHelper.JsonFileConfigs[row].CopyAndPaste.SourcePath;
-            _fileConfig.CopyAndPaste.DestinationPath = ConfigFileHelper.JsonFileConfigs[row].CopyAndPaste.DestinationPath;
-            _fileConfig.CopyAndPaste.Ignore.Files = ConfigFileHelper.JsonFileConfigs[row].CopyAndPaste.Ignore.Files;
-            _fileConfig.CopyAndPaste.Ignore.Folders = ConfigFileHelper.JsonFileConfigs[row].CopyAndPaste.Ignore.Files;
-
-            _fileConfig.CompressFolder.Status = ConfigFileHelper.JsonFileConfigs[row].CompressFolder.Status;
-            _fileConfig.CompressFolder.ZipFileName = ConfigFileHelper.JsonFileConfigs[row].CompressFolder.ZipFileName;
-            _fileConfig.CompressFolder.SourcePath = ConfigFileHelper.JsonFileConfigs[row].CompressFolder.SourcePath;
-            _fileConfig.CompressFolder.MoveToPath = ConfigFileHelper.JsonFileConfigs[row].CompressFolder.MoveToPath;
-            _fileConfig.CompressFolder.Ignore.Files = ConfigFileHelper.JsonFileConfigs[row].CompressFolder.Ignore.Files;
-            _fileConfig.CompressFolder.Ignore.Folders = ConfigFileHelper.JsonFileConfigs[row].CompressFolder.Ignore.Folders;
-            */
-            Form schedules = new SchedulesAdd(_fileConfig);
+            Form schedules = new SchedulesAdd(_fileConfigModel);
             schedules.ShowDialog();
         }
     }
