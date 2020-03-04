@@ -1,5 +1,6 @@
 [
   {
+    "Id": "aa923446-77c7-4973-a5e0-f1b0b4ed50ed",
     "Title": "Front",
     "Status": "true",
     "CompressFolder": {
@@ -24,6 +25,7 @@
     }
   },
   {
+    "Id": "94d73bff-bdc7-4e37-a90e-4472262d70d1",
     "Title": "Front2To",
     "Status": "true",
     "CompressFolder": {

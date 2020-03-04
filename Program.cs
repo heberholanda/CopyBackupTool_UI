@@ -12,6 +12,8 @@ namespace CopyBackupToolUI_NS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Guid g1 = Guid.NewGuid();
+            Guid g2 = Guid.NewGuid();
             Application.Run(new Painel());
         }
     }

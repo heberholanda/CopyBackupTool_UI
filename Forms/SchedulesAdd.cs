@@ -57,34 +57,35 @@ namespace CopyBackupToolUI
             string[] _compressIgnoreFolders = this.textBoxCompressIgnoreFolders.Text.Split(',').ToArray();
 
             // Create Models
-            Ignore _myCopyIgnoreCopy = new Ignore();
-                _myCopyIgnoreCopy.Files = _copyPasteIgnoreFiles;
-                _myCopyIgnoreCopy.Folders = _copyPasteIgnoreFolders;
-        
-            Ignore _myCopyIgnoreCompress = new Ignore();
-                _myCopyIgnoreCompress.Files = _compressIgnoreFiles;
-                _myCopyIgnoreCompress.Folders = _compressIgnoreFolders;
-
-            CopyAndPaste _myCopy = new CopyAndPaste();
-                _myCopy.Status = _copyPasteStatus;
-                _myCopy.Overwrite = _copyPasteOverwrite;
-                _myCopy.SourcePath = _copyPasteSource;
-                _myCopy.DestinationPath = _copyPasteDestination;
-                _myCopy.Ignore = _myCopyIgnoreCopy;
-
-            CompressFolder _myCompress = new CompressFolder();
-                _myCompress.Status = _compressStatus;
-                _myCompress.ZipFileName = _compressTitle;
-                _myCompress.SourcePath = _compressSource;
-                _myCompress.MoveToPath = _compressDestination;
-
-            FileModel _myFileModel = new FileModel();
-                _myFileModel.Title = _title.ToString();
-                _myFileModel.Status = _status;
-                _myFileModel.CopyAndPaste = _myCopy;
-                _myFileModel.CompressFolder = _myCompress;
-
-
+            FileModel _myFileModel = new FileModel
+            {
+                Title = _title.ToString(),
+                Status = _status,
+                CopyAndPaste = new CopyAndPaste
+                {
+                    Status = _copyPasteStatus,
+                    Overwrite = _copyPasteOverwrite,
+                    SourcePath = _copyPasteSource,
+                    DestinationPath = _copyPasteDestination,
+                    Ignore = new Ignore
+                    {
+                        Files = _copyPasteIgnoreFiles,
+                        Folders = _copyPasteIgnoreFolders
+                    }
+                },
+                CompressFolder = new CompressFolder
+                {
+                    Status = _compressStatus,
+                    ZipFileName = _compressTitle,
+                    SourcePath = _compressSource,
+                    MoveToPath = _compressDestination,
+                    Ignore = new Ignore
+                    {
+                        Files = _compressIgnoreFiles,
+                        Folders = _compressIgnoreFolders
+                    }
+                }
+            };
         }
         private void Schedules_Load(object sender, EventArgs e)
         {
