@@ -34,7 +34,7 @@ namespace CopyBackupToolUI
         {
 
         }
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
             Console.Beep();
 
@@ -59,6 +59,7 @@ namespace CopyBackupToolUI
             // Create Models
             FileModel _myFileModel = new FileModel
             {
+                Id = Guid.NewGuid(),
                 Title = _title.ToString(),
                 Status = _status,
                 CopyAndPaste = new CopyAndPaste
@@ -86,6 +87,15 @@ namespace CopyBackupToolUI
                     }
                 }
             };
+
+            // Add or Update
+            if (ConfigFileHelper.JsonFileConfigs.Any(x => x.Id == _config.Id))
+            {
+                // Update
+            } else
+            {
+                // Add
+            }
         }
         private void Schedules_Load(object sender, EventArgs e)
         {
