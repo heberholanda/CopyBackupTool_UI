@@ -62,17 +62,17 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(247, 493);
+            this.buttonAdd.Location = new System.Drawing.Point(241, 493);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(125, 25);
             this.buttonAdd.TabIndex = 15;
-            this.buttonAdd.Text = "Add";
+            this.buttonAdd.Text = "Save";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(103, 493);
+            this.buttonReset.Location = new System.Drawing.Point(97, 493);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(125, 25);
             this.buttonReset.TabIndex = 16;
@@ -92,7 +92,7 @@
             // textBoxTitle
             // 
             this.textBoxTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTitle.Location = new System.Drawing.Point(169, 22);
+            this.textBoxTitle.Location = new System.Drawing.Point(177, 22);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(250, 20);
             this.textBoxTitle.TabIndex = 1;
@@ -109,7 +109,7 @@
             // checkBoxStatus
             // 
             this.checkBoxStatus.AutoSize = true;
-            this.checkBoxStatus.Location = new System.Drawing.Point(169, 51);
+            this.checkBoxStatus.Location = new System.Drawing.Point(176, 51);
             this.checkBoxStatus.Name = "checkBoxStatus";
             this.checkBoxStatus.Size = new System.Drawing.Size(59, 17);
             this.checkBoxStatus.TabIndex = 2;
@@ -127,6 +127,7 @@
             this.imageButtonTools.Margin = new System.Windows.Forms.Padding(0);
             this.imageButtonTools.Name = "imageButtonTools";
             this.imageButtonTools.Size = new System.Drawing.Size(64, 64);
+            this.imageButtonTools.TabIndex = 25;
             this.imageButtonTools.TabStop = false;
             this.imageButtonTools.UseVisualStyleBackColor = false;
             // 
@@ -137,10 +138,11 @@
             this.imageButtonCopyPaste.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Inch, ((byte)(0)));
             this.imageButtonCopyPaste.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.imageButtonCopyPaste.Image = ((System.Drawing.Image)(resources.GetObject("imageButtonCopyPaste.Image")));
-            this.imageButtonCopyPaste.Location = new System.Drawing.Point(21, 116);
+            this.imageButtonCopyPaste.Location = new System.Drawing.Point(21, 118);
             this.imageButtonCopyPaste.Margin = new System.Windows.Forms.Padding(0);
             this.imageButtonCopyPaste.Name = "imageButtonCopyPaste";
             this.imageButtonCopyPaste.Size = new System.Drawing.Size(64, 64);
+            this.imageButtonCopyPaste.TabIndex = 24;
             this.imageButtonCopyPaste.TabStop = false;
             this.imageButtonCopyPaste.UseVisualStyleBackColor = false;
             // 
@@ -160,6 +162,7 @@
             this.labelCopyPasteStatus.Location = new System.Drawing.Point(100, 110);
             this.labelCopyPasteStatus.Name = "labelCopyPasteStatus";
             this.labelCopyPasteStatus.Size = new System.Drawing.Size(37, 13);
+            this.labelCopyPasteStatus.TabIndex = 23;
             this.labelCopyPasteStatus.Text = "Status";
             // 
             // imageButtonZip
@@ -173,6 +176,7 @@
             this.imageButtonZip.Margin = new System.Windows.Forms.Padding(0);
             this.imageButtonZip.Name = "imageButtonZip";
             this.imageButtonZip.Size = new System.Drawing.Size(64, 64);
+            this.imageButtonZip.TabIndex = 22;
             this.imageButtonZip.TabStop = false;
             this.imageButtonZip.UseVisualStyleBackColor = false;
             // 
@@ -191,6 +195,7 @@
             this.labelCopyPasteSourcePath.Location = new System.Drawing.Point(100, 137);
             this.labelCopyPasteSourcePath.Name = "labelCopyPasteSourcePath";
             this.labelCopyPasteSourcePath.Size = new System.Drawing.Size(41, 13);
+            this.labelCopyPasteSourcePath.TabIndex = 21;
             this.labelCopyPasteSourcePath.Text = "Source";
             this.labelCopyPasteSourcePath.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -210,6 +215,7 @@
             this.labelCopyPasteOverwrite.Location = new System.Drawing.Point(298, 111);
             this.labelCopyPasteOverwrite.Name = "labelCopyPasteOverwrite";
             this.labelCopyPasteOverwrite.Size = new System.Drawing.Size(52, 13);
+            this.labelCopyPasteOverwrite.TabIndex = 20;
             this.labelCopyPasteOverwrite.Text = "Overwrite";
             // 
             // labelCopyPasteDestinationPath
@@ -218,6 +224,7 @@
             this.labelCopyPasteDestinationPath.Location = new System.Drawing.Point(100, 165);
             this.labelCopyPasteDestinationPath.Name = "labelCopyPasteDestinationPath";
             this.labelCopyPasteDestinationPath.Size = new System.Drawing.Size(60, 13);
+            this.labelCopyPasteDestinationPath.TabIndex = 19;
             this.labelCopyPasteDestinationPath.Text = "Destination";
             this.labelCopyPasteDestinationPath.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -241,9 +248,10 @@
             // labelCopyPasteIgnoreFiles
             // 
             this.labelCopyPasteIgnoreFiles.AutoSize = true;
-            this.labelCopyPasteIgnoreFiles.Location = new System.Drawing.Point(106, 199);
+            this.labelCopyPasteIgnoreFiles.Location = new System.Drawing.Point(100, 199);
             this.labelCopyPasteIgnoreFiles.Name = "labelCopyPasteIgnoreFiles";
             this.labelCopyPasteIgnoreFiles.Size = new System.Drawing.Size(61, 13);
+            this.labelCopyPasteIgnoreFiles.TabIndex = 18;
             this.labelCopyPasteIgnoreFiles.Text = "Ignore Files";
             // 
             // panelCopyPasteIgnoreModal
@@ -270,15 +278,16 @@
             // 
             this.labelCopyPasteIgnoreFolders.AutoSize = true;
             this.labelCopyPasteIgnoreFolders.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelCopyPasteIgnoreFolders.Location = new System.Drawing.Point(10, 35);
+            this.labelCopyPasteIgnoreFolders.Location = new System.Drawing.Point(4, 35);
             this.labelCopyPasteIgnoreFolders.Name = "labelCopyPasteIgnoreFolders";
             this.labelCopyPasteIgnoreFolders.Size = new System.Drawing.Size(74, 13);
+            this.labelCopyPasteIgnoreFolders.TabIndex = 9;
             this.labelCopyPasteIgnoreFolders.Text = "Ignore Folders";
             // 
             // textBoxCompressIgnoreFiles
             // 
             this.textBoxCompressIgnoreFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCompressIgnoreFiles.Location = new System.Drawing.Point(169, 398);
+            this.textBoxCompressIgnoreFiles.Location = new System.Drawing.Point(176, 398);
             this.textBoxCompressIgnoreFiles.Name = "textBoxCompressIgnoreFiles";
             this.textBoxCompressIgnoreFiles.Size = new System.Drawing.Size(249, 20);
             this.textBoxCompressIgnoreFiles.TabIndex = 13;
@@ -286,24 +295,26 @@
             // labelCompressIgnoreFiles
             // 
             this.labelCompressIgnoreFiles.AutoSize = true;
-            this.labelCompressIgnoreFiles.Location = new System.Drawing.Point(98, 401);
+            this.labelCompressIgnoreFiles.Location = new System.Drawing.Point(100, 401);
             this.labelCompressIgnoreFiles.Name = "labelCompressIgnoreFiles";
             this.labelCompressIgnoreFiles.Size = new System.Drawing.Size(61, 13);
+            this.labelCompressIgnoreFiles.TabIndex = 14;
             this.labelCompressIgnoreFiles.Text = "Ignore Files";
             // 
             // labelCompressDestinationPath
             // 
             this.labelCompressDestinationPath.AutoSize = true;
-            this.labelCompressDestinationPath.Location = new System.Drawing.Point(99, 367);
+            this.labelCompressDestinationPath.Location = new System.Drawing.Point(100, 367);
             this.labelCompressDestinationPath.Name = "labelCompressDestinationPath";
             this.labelCompressDestinationPath.Size = new System.Drawing.Size(60, 13);
+            this.labelCompressDestinationPath.TabIndex = 15;
             this.labelCompressDestinationPath.Text = "Destination";
             this.labelCompressDestinationPath.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textBoxCompressDestinationPath
             // 
             this.textBoxCompressDestinationPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCompressDestinationPath.Location = new System.Drawing.Point(168, 364);
+            this.textBoxCompressDestinationPath.Location = new System.Drawing.Point(176, 362);
             this.textBoxCompressDestinationPath.Name = "textBoxCompressDestinationPath";
             this.textBoxCompressDestinationPath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressDestinationPath.TabIndex = 12;
@@ -312,16 +323,17 @@
             // labelCompressSourcePath
             // 
             this.labelCompressSourcePath.AutoSize = true;
-            this.labelCompressSourcePath.Location = new System.Drawing.Point(99, 339);
+            this.labelCompressSourcePath.Location = new System.Drawing.Point(100, 339);
             this.labelCompressSourcePath.Name = "labelCompressSourcePath";
             this.labelCompressSourcePath.Size = new System.Drawing.Size(41, 13);
+            this.labelCompressSourcePath.TabIndex = 16;
             this.labelCompressSourcePath.Text = "Source";
             this.labelCompressSourcePath.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textBoxCompressSourcePath
             // 
             this.textBoxCompressSourcePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCompressSourcePath.Location = new System.Drawing.Point(168, 336);
+            this.textBoxCompressSourcePath.Location = new System.Drawing.Point(176, 336);
             this.textBoxCompressSourcePath.Name = "textBoxCompressSourcePath";
             this.textBoxCompressSourcePath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressSourcePath.TabIndex = 11;
@@ -330,7 +342,7 @@
             // checkBoxCompressStatus
             // 
             this.checkBoxCompressStatus.AutoSize = true;
-            this.checkBoxCompressStatus.Location = new System.Drawing.Point(168, 289);
+            this.checkBoxCompressStatus.Location = new System.Drawing.Point(176, 289);
             this.checkBoxCompressStatus.Name = "checkBoxCompressStatus";
             this.checkBoxCompressStatus.Size = new System.Drawing.Size(59, 17);
             this.checkBoxCompressStatus.TabIndex = 9;
@@ -340,9 +352,10 @@
             // labelCompressStatus
             // 
             this.labelCompressStatus.AutoSize = true;
-            this.labelCompressStatus.Location = new System.Drawing.Point(99, 289);
+            this.labelCompressStatus.Location = new System.Drawing.Point(100, 289);
             this.labelCompressStatus.Name = "labelCompressStatus";
             this.labelCompressStatus.Size = new System.Drawing.Size(37, 13);
+            this.labelCompressStatus.TabIndex = 17;
             this.labelCompressStatus.Text = "Status";
             // 
             // panelCompressIgnoreModal
@@ -352,7 +365,7 @@
             this.panelCompressIgnoreModal.Controls.Add(this.textBoxCompressIgnoreFolders);
             this.panelCompressIgnoreModal.Controls.Add(this.labelCompressIgnoreFolders);
             this.panelCompressIgnoreModal.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelCompressIgnoreModal.Location = new System.Drawing.Point(87, 391);
+            this.panelCompressIgnoreModal.Location = new System.Drawing.Point(95, 391);
             this.panelCompressIgnoreModal.Name = "panelCompressIgnoreModal";
             this.panelCompressIgnoreModal.Size = new System.Drawing.Size(346, 61);
             this.panelCompressIgnoreModal.TabIndex = 13;
@@ -360,7 +373,7 @@
             // textBoxCompressIgnoreFolders
             // 
             this.textBoxCompressIgnoreFolders.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCompressIgnoreFolders.Location = new System.Drawing.Point(81, 32);
+            this.textBoxCompressIgnoreFolders.Location = new System.Drawing.Point(80, 32);
             this.textBoxCompressIgnoreFolders.Name = "textBoxCompressIgnoreFolders";
             this.textBoxCompressIgnoreFolders.Size = new System.Drawing.Size(249, 20);
             this.textBoxCompressIgnoreFolders.TabIndex = 14;
@@ -369,15 +382,16 @@
             // 
             this.labelCompressIgnoreFolders.AutoSize = true;
             this.labelCompressIgnoreFolders.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelCompressIgnoreFolders.Location = new System.Drawing.Point(10, 35);
+            this.labelCompressIgnoreFolders.Location = new System.Drawing.Point(4, 35);
             this.labelCompressIgnoreFolders.Name = "labelCompressIgnoreFolders";
             this.labelCompressIgnoreFolders.Size = new System.Drawing.Size(74, 13);
+            this.labelCompressIgnoreFolders.TabIndex = 15;
             this.labelCompressIgnoreFolders.Text = "Ignore Folders";
             // 
             // textBoxCompressTitle
             // 
             this.textBoxCompressTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCompressTitle.Location = new System.Drawing.Point(168, 310);
+            this.textBoxCompressTitle.Location = new System.Drawing.Point(175, 310);
             this.textBoxCompressTitle.Name = "textBoxCompressTitle";
             this.textBoxCompressTitle.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressTitle.TabIndex = 10;
@@ -385,9 +399,10 @@
             // labelCompressTitle
             // 
             this.labelCompressTitle.AutoSize = true;
-            this.labelCompressTitle.Location = new System.Drawing.Point(99, 313);
+            this.labelCompressTitle.Location = new System.Drawing.Point(100, 313);
             this.labelCompressTitle.Name = "labelCompressTitle";
             this.labelCompressTitle.Size = new System.Drawing.Size(27, 13);
+            this.labelCompressTitle.TabIndex = 11;
             this.labelCompressTitle.Text = "Title";
             // 
             // panelSecond
@@ -396,6 +411,7 @@
             this.panelSecond.Location = new System.Drawing.Point(-7, 267);
             this.panelSecond.Name = "panelSecond";
             this.panelSecond.Size = new System.Drawing.Size(489, 4);
+            this.panelSecond.TabIndex = 2;
             // 
             // panelFirst
             // 
@@ -403,6 +419,7 @@
             this.panelFirst.Location = new System.Drawing.Point(2, 92);
             this.panelFirst.Name = "panelFirst";
             this.panelFirst.Size = new System.Drawing.Size(475, 4);
+            this.panelFirst.TabIndex = 1;
             // 
             // panelThree
             // 
@@ -410,23 +427,26 @@
             this.panelThree.Location = new System.Drawing.Point(2, 468);
             this.panelThree.Name = "panelThree";
             this.panelThree.Size = new System.Drawing.Size(475, 4);
+            this.panelThree.TabIndex = 0;
             // 
             // labelCopyAndPaste
             // 
             this.labelCopyAndPaste.AutoSize = true;
             this.labelCopyAndPaste.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCopyAndPaste.Location = new System.Drawing.Point(10, 95);
+            this.labelCopyAndPaste.Location = new System.Drawing.Point(12, 100);
             this.labelCopyAndPaste.Name = "labelCopyAndPaste";
             this.labelCopyAndPaste.Size = new System.Drawing.Size(89, 16);
+            this.labelCopyAndPaste.TabIndex = 26;
             this.labelCopyAndPaste.Text = "Copy and Paste";
             // 
             // labelCompressMode
             // 
             this.labelCompressMode.AutoSize = true;
             this.labelCompressMode.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCompressMode.Location = new System.Drawing.Point(10, 270);
+            this.labelCompressMode.Location = new System.Drawing.Point(6, 274);
             this.labelCompressMode.Name = "labelCompressMode";
             this.labelCompressMode.Size = new System.Drawing.Size(93, 16);
+            this.labelCompressMode.TabIndex = 27;
             this.labelCompressMode.Text = "Compress Mode";
             // 
             // SchedulesAdd
