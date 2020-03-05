@@ -21,12 +21,12 @@ namespace CopyBackupToolUI.Forms
         {
             try
             {
-                switch (e.ColumnIndex)
+                switch (this.dataGridViewSchedulesConfigs.Columns[e.ColumnIndex].Name)
                 {
-                    case 4:
+                    case "DataGridViewTextBoxColumn_Update":
                         redirectToUpdateForm(e.RowIndex);
                         break;
-                    case 5:
+                    case "DataGridViewTextBoxColumn_Delete":
                         //deleteData(e.RowIndex);
                         break;
                 }
