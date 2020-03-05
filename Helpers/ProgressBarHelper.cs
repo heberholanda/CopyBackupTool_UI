@@ -19,23 +19,23 @@ namespace CopyBackupToolUI.Helpers
 
                 return _progress;
             }
-            catch (IOException ex)
+            catch (IOException)
             {
                 return 0;
             }
-            catch (ArgumentNullException ex)
+            catch (ArgumentNullException)
             {
                 return 0;
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 return 0;
             }
-            catch (AggregateException ex)
+            catch (AggregateException)
             {
                 return 0;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

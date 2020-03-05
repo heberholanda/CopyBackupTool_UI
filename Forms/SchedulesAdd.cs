@@ -54,6 +54,8 @@ namespace CopyBackupToolUI
             Console.Beep();
 
             // Get Data
+            //var _id = (ConfigFileHelper.JsonFileConfigs.Any(x => x.Id == _config.Id)) ? _config.Id : Guid.NewGuid();
+            var _id = _config.Id;
             var _title = this.textBoxTitle.Text;
             var _status = this.checkBoxStatus.Checked;
 
@@ -74,7 +76,7 @@ namespace CopyBackupToolUI
             // Create Models
             FileModel _myFileModel = new FileModel
             {
-                Id = Guid.NewGuid(),
+                Id = _id,
                 Title = _title.ToString(),
                 Status = _status,
                 CopyAndPaste = new CopyAndPaste
@@ -102,15 +104,7 @@ namespace CopyBackupToolUI
                     }
                 }
             };
-
-            // Add or Update
-            if (ConfigFileHelper.JsonFileConfigs.Any(x => x.Id == _config.Id))
-            {
-                // Update
-            } else
-            {
-                // Add
-            }
+            ConfigFileHelper.SaveOrUpdateJson(_myFileModel);
         }
         private void Schedules_Load(object sender, EventArgs e)
         {

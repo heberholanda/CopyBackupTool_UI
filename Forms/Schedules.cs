@@ -43,6 +43,7 @@ namespace CopyBackupToolUI.Forms
 
             FileModel _fileConfigModel = new FileModel
             {
+                Id = row,
                 Title = _myConfig.Title,
                 Status = _myConfig.Status,
                 CopyAndPaste = new CopyAndPaste

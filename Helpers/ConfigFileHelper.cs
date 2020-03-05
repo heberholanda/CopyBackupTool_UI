@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace CopyBackupToolUI.Helpers
 {
@@ -10,7 +11,7 @@ namespace CopyBackupToolUI.Helpers
     {
         public static string ConfigPath = AppDomain.CurrentDomain.BaseDirectory + ConfigFile;
         public static string ConfigFile = "ConfigurationFile.json";
-        public static string ConfigFull = "C:\\CopyBackupTool\\CopyBackupTool\\" + ConfigFile;
+        public static string ConfigFullPath = "C:\\CopyBackupTool\\CopyBackupTool\\" + ConfigFile;
         public static List<FileModel> JsonFileConfigs = new List<FileModel>();
         
         public static void Load()
@@ -22,10 +23,9 @@ namespace CopyBackupToolUI.Helpers
             try
             {
                 ConsoleLogHelper.Add("[ Config ] Loading...");
-                ConsoleLogHelper.Add("[ Config ] Path: " + ConfigFull);
-                StreamReader reader = new StreamReader(ConfigFull);
-                string json = reader.ReadToEnd();
-                return JsonConvert.DeserializeObject<List<FileModel>>(json);
+                ConsoleLogHelper.Add("[ Config ] Path: " + ConfigFullPath);
+                StreamReader reader = new StreamReader(ConfigFullPath);
+                return JsonConvert.DeserializeObject<List<FileModel>>(reader.ReadToEnd());
             }
             catch (FileNotFoundException ex)
             {
@@ -44,5 +44,15 @@ namespace CopyBackupToolUI.Helpers
                 throw;
             }
         }
+
+        public static FileModel GetFileModel(int id)
+        {
+            var fileConfigs = JsonConvert.DeserializeObject<List<FileModel>>(
+                File.ReadAllText(ConfigFileHelper.ConfigFullPath)
+            );
+            return fileConfigs.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        
     }
 }

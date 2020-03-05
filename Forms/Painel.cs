@@ -107,7 +107,7 @@ namespace CopyBackupToolUI
         {
             Console.Beep();
             ConsoleLogHelper.Add("[ Configs ]  Searching for configuration file...");
-            ConsoleLogHelper.Add("[ Configs ]  Path: "+ ConfigFileHelper.ConfigFull);
+            ConsoleLogHelper.Add("[ Configs ]  Path: "+ ConfigFileHelper.ConfigFullPath);
         }
         private void Schedules_Click(object sender, EventArgs e)
         {
