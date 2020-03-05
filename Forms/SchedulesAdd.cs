@@ -32,7 +32,22 @@ namespace CopyBackupToolUI
         }
         private void buttonReset_Click(object sender, EventArgs e)
         {
+            this.textBoxTitle.Text = string.Empty;
+            this.checkBoxStatus.Checked = false;
 
+            this.checkBoxCopyPasteStatus.Checked = false;
+            this.checkBoxCopyPasteOverwrite.Checked = false;
+            this.textBoxCopyPaste_SourcePath.Text = string.Empty;
+            this.textBoxCopyPasteDestinationPath.Text = string.Empty;
+            this.textBoxCopyPasteIgnoreFiles.Text = string.Empty;
+            this.textBoxCopyPasteIgnoreFolders.Text = string.Empty;
+
+            this.checkBoxCompressStatus.Checked = false;
+            this.textBoxCompressTitle.Text = string.Empty;
+            this.textBoxCompressSourcePath.Text = string.Empty;
+            this.textBoxCompressDestinationPath.Text = string.Empty;
+            this.textBoxCompressIgnoreFiles.Text = string.Empty;
+            this.textBoxCompressIgnoreFolders.Text = string.Empty;
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
