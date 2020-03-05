@@ -1,4 +1,5 @@
-﻿using CopyBackupToolUI.Models;
+﻿using CopyBackupToolUI.Forms;
+using CopyBackupToolUI.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace CopyBackupToolUI.Helpers
         public static string ConfigFullPath = "C:\\CopyBackupTool\\CopyBackupTool\\" + ConfigFile;
         public static List<FileModel> JsonFileConfigs = new List<FileModel>();
         
-        public static void Load()
+        public static void Load(bool showLog = true)
         {
-            JsonFileConfigs = ConfigFileHelper.LoadJson();
+            JsonFileConfigs = ConfigFileHelper.LoadJson(showLog);
         }
         public static FileModel GetFileModel(int id)
         {
@@ -25,12 +26,14 @@ namespace CopyBackupToolUI.Helpers
             );
             return fileConfigs.Where(x => x.Id == id).FirstOrDefault();
         }
-        public static List<FileModel> LoadJson()
+        public static List<FileModel> LoadJson(bool showLog)
         {
             try
             {
-                ConsoleLogHelper.Add("[ Config ] Loading...");
-                ConsoleLogHelper.Add("[ Config ] Path: " + ConfigFullPath);
+                if (showLog) {
+                    ConsoleLogHelper.Add("[ Config ] Loading...");
+                    ConsoleLogHelper.Add("[ Config ] Path: " + ConfigFullPath);
+                }
 
                 string json = File.ReadAllText(ConfigFullPath);
                 return JsonConvert.DeserializeObject<List<FileModel>>(json);
@@ -68,7 +71,6 @@ namespace CopyBackupToolUI.Helpers
                     // Update
                     jsonDeserialize[model.Id] = model;
                 }
-
                 string jsonSerialize = JsonConvert.SerializeObject(jsonDeserialize, Formatting.Indented);
                 File.WriteAllText(ConfigFullPath, jsonSerialize);
                 ConsoleLogHelper.Add("[ Config ] Saved Path: " + ConfigFullPath);

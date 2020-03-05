@@ -18,33 +18,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridViewSchedulesConfigs = new System.Windows.Forms.DataGridView();
+            dataGridViewSchedulesConfigs = new System.Windows.Forms.DataGridView();
             this.labelTitle = new System.Windows.Forms.Label();
             this.fileModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataGridViewTextBoxColumn_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridViewCheckBoxColumn_status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DataGridViewTextBoxColumn_Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DataGridViewTextBoxColumn_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSchedulesConfigs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(dataGridViewSchedulesConfigs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewSchedulesConfigs
             // 
-            this.dataGridViewSchedulesConfigs.AllowUserToOrderColumns = true;
-            this.dataGridViewSchedulesConfigs.AutoGenerateColumns = false;
-            this.dataGridViewSchedulesConfigs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSchedulesConfigs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            dataGridViewSchedulesConfigs.AllowUserToOrderColumns = true;
+            dataGridViewSchedulesConfigs.AutoGenerateColumns = false;
+            dataGridViewSchedulesConfigs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewSchedulesConfigs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DataGridViewTextBoxColumn_title,
             this.DataGridViewCheckBoxColumn_status,
             this.DataGridViewTextBoxColumn_Update,
             this.DataGridViewTextBoxColumn_Delete});
-            this.dataGridViewSchedulesConfigs.DataSource = this.fileModelBindingSource;
-            this.dataGridViewSchedulesConfigs.Location = new System.Drawing.Point(7, 56);
-            this.dataGridViewSchedulesConfigs.Name = "dataGridViewSchedulesConfigs";
-            this.dataGridViewSchedulesConfigs.Size = new System.Drawing.Size(543, 272);
-            this.dataGridViewSchedulesConfigs.TabIndex = 0;
-            this.dataGridViewSchedulesConfigs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedulesConfigs_CellContentClick);
+            dataGridViewSchedulesConfigs.DataSource = this.fileModelBindingSource;
+            dataGridViewSchedulesConfigs.Location = new System.Drawing.Point(7, 56);
+            dataGridViewSchedulesConfigs.Name = "dataGridViewSchedulesConfigs";
+            dataGridViewSchedulesConfigs.Size = new System.Drawing.Size(543, 272);
+            dataGridViewSchedulesConfigs.TabIndex = 0;
+            dataGridViewSchedulesConfigs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedulesConfigs_CellContentClick);
             // 
             // labelTitle
             // 
@@ -101,11 +101,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 338);
             this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.dataGridViewSchedulesConfigs);
+            this.Controls.Add(dataGridViewSchedulesConfigs);
             this.Name = "Schedules";
             this.Text = "Schedules";
             this.Load += new System.EventHandler(this.Schedules_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSchedulesConfigs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dataGridViewSchedulesConfigs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -114,12 +114,13 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewSchedulesConfigs;
+        public static System.Windows.Forms.DataGridView dataGridViewSchedulesConfigs;
         private System.Windows.Forms.BindingSource fileModelBindingSource;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_title;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DataGridViewCheckBoxColumn_status;
         private System.Windows.Forms.DataGridViewButtonColumn DataGridViewTextBoxColumn_Update;
         private System.Windows.Forms.DataGridViewButtonColumn DataGridViewTextBoxColumn_Delete;
+
     }
 }

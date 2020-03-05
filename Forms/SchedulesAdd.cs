@@ -1,4 +1,5 @@
-﻿using CopyBackupToolUI.Helpers;
+﻿using CopyBackupToolUI.Forms;
+using CopyBackupToolUI.Helpers;
 using CopyBackupToolUI.Models;
 using System;
 using System.Linq;
@@ -105,6 +106,10 @@ namespace CopyBackupToolUI
                 }
             };
             ConfigFileHelper.SaveOrUpdateJson(_myFileModel);
+
+            // Update View
+            ConfigFileHelper.Load(false);
+            Schedules.dataGridViewSchedulesConfigs.DataSource = ConfigFileHelper.JsonFileConfigs;
         }
         private void Schedules_Load(object sender, EventArgs e)
         {

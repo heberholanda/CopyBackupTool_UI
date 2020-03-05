@@ -10,7 +10,7 @@ namespace CopyBackupToolUI.Forms
         public Schedules()
         {
             InitializeComponent();
-            this.dataGridViewSchedulesConfigs.DataSource = ConfigFileHelper.JsonFileConfigs;
+            dataGridViewSchedulesConfigs.DataSource = ConfigFileHelper.JsonFileConfigs;
         }
 
         private void Schedules_Load(object sender, System.EventArgs e)
@@ -21,7 +21,7 @@ namespace CopyBackupToolUI.Forms
         {
             try
             {
-                switch (this.dataGridViewSchedulesConfigs.Columns[e.ColumnIndex].Name)
+                switch (dataGridViewSchedulesConfigs.Columns[e.ColumnIndex].Name)
                 {
                     case "DataGridViewTextBoxColumn_Update":
                         redirectToUpdateForm(e.RowIndex);
@@ -72,8 +72,9 @@ namespace CopyBackupToolUI.Forms
                 }
             };
 
-            Form schedules = new SchedulesAdd(_fileConfigModel);
-            schedules.ShowDialog();
+            Form _schedules = new SchedulesAdd(_fileConfigModel);
+            _schedules.ShowDialog();
+
         }
     }
 }
