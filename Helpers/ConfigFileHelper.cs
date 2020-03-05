@@ -18,14 +18,22 @@ namespace CopyBackupToolUI.Helpers
         {
             JsonFileConfigs = ConfigFileHelper.LoadJson();
         }
+        public static FileModel GetFileModel(int id)
+        {
+            var fileConfigs = JsonConvert.DeserializeObject<List<FileModel>>(
+                File.ReadAllText(ConfigFileHelper.ConfigFullPath)
+            );
+            return fileConfigs.Where(x => x.Id == id).FirstOrDefault();
+        }
         public static List<FileModel> LoadJson()
         {
             try
             {
                 ConsoleLogHelper.Add("[ Config ] Loading...");
                 ConsoleLogHelper.Add("[ Config ] Path: " + ConfigFullPath);
-                StreamReader reader = new StreamReader(ConfigFullPath);
-                return JsonConvert.DeserializeObject<List<FileModel>>(reader.ReadToEnd());
+
+                string json = File.ReadAllText(ConfigFullPath);
+                return JsonConvert.DeserializeObject<List<FileModel>>(json);
             }
             catch (FileNotFoundException ex)
             {
@@ -45,14 +53,32 @@ namespace CopyBackupToolUI.Helpers
             }
         }
 
-        public static FileModel GetFileModel(int id)
+        public static void SaveOrUpdateJson(FileModel model)
         {
-            var fileConfigs = JsonConvert.DeserializeObject<List<FileModel>>(
-                File.ReadAllText(ConfigFileHelper.ConfigFullPath)
-            );
-            return fileConfigs.Where(x => x.Id == id).FirstOrDefault();
-        }
+            try
+            {
+                ConsoleLogHelper.Add("[ Config ] Saving...");
+                string json = File.ReadAllText(ConfigFullPath);
+                List<FileModel> jsonDeserialize = JsonConvert.DeserializeObject<List<FileModel>>(json);
 
-        
+                if (GetFileModel(model.Id) == null) {
+                    // Save
+                    jsonDeserialize.Add(model);
+                } else {
+                    // Update
+                    jsonDeserialize[model.Id] = model;
+                }
+
+                string jsonSerialize = JsonConvert.SerializeObject(jsonDeserialize, Formatting.Indented);
+                File.WriteAllText(ConfigFullPath, jsonSerialize);
+                ConsoleLogHelper.Add("[ Config ] Saved Path: " + ConfigFullPath);
+            }
+            catch (Exception ex)
+            {
+                ConsoleLogHelper.Add("[ Config ] ERROR in Saving");
+                ConsoleLogHelper.Add("[ Config ] Ex: "+ ex.Message);
+                throw;
+            }
+        }
     }
 }
