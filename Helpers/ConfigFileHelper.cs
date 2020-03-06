@@ -1,5 +1,4 @@
-﻿using CopyBackupToolUI.Forms;
-using CopyBackupToolUI.Models;
+﻿using CopyBackupToolUI.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -32,7 +31,7 @@ namespace CopyBackupToolUI.Helpers
             {
                 if (showLog) {
                     ConsoleLogHelper.Add("[ Config ] Loading...");
-                    ConsoleLogHelper.Add("[ Config ] Path: " + ConfigFullPath);
+                    ConsoleLogHelper.Add("[ Config ] Load in path: " + ConfigFullPath);
                 }
 
                 string json = File.ReadAllText(ConfigFullPath);
@@ -55,8 +54,7 @@ namespace CopyBackupToolUI.Helpers
                 throw;
             }
         }
-
-        public static void SaveOrUpdateJson(FileModel model)
+        public static void SaveOrUpdate(FileModel model)
         {
             try
             {
@@ -73,14 +71,29 @@ namespace CopyBackupToolUI.Helpers
                 }
                 string jsonSerialize = JsonConvert.SerializeObject(jsonDeserialize, Formatting.Indented);
                 File.WriteAllText(ConfigFullPath, jsonSerialize);
-                ConsoleLogHelper.Add("[ Config ] Saved Path: " + ConfigFullPath);
+                ConsoleLogHelper.Add("[ Config ] Saved in path: " + ConfigFullPath);
             }
             catch (Exception ex)
             {
-                ConsoleLogHelper.Add("[ Config ] ERROR in Saving");
+                ConsoleLogHelper.Add("[ Config ] ERROR in saving");
                 ConsoleLogHelper.Add("[ Config ] Ex: "+ ex.Message);
                 throw;
             }
+        }
+        public static void Delete(int configId)
+        {
+            ConsoleLogHelper.Add("[ Config ] Deleting...");
+            string json = File.ReadAllText(ConfigFullPath);
+            List<FileModel> jsonDeserialize = JsonConvert.DeserializeObject<List<FileModel>>(json);
+
+            if (GetFileModel(configId) != null) {
+                // Delete
+                jsonDeserialize.RemoveAt(configId);
+            }
+
+            string jsonSerialize = JsonConvert.SerializeObject(jsonDeserialize, Formatting.Indented);
+            File.WriteAllText(ConfigFullPath, jsonSerialize);
+            ConsoleLogHelper.Add("[ Config ] Deleted in path: " + ConfigFullPath);
         }
     }
 }

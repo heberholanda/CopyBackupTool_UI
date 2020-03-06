@@ -12,7 +12,6 @@ namespace CopyBackupToolUI.Forms
             InitializeComponent();
             dataGridViewSchedulesConfigs.DataSource = ConfigFileHelper.JsonFileConfigs;
         }
-
         private void Schedules_Load(object sender, System.EventArgs e)
         {
         }
@@ -27,7 +26,7 @@ namespace CopyBackupToolUI.Forms
                         redirectToUpdateForm(e.RowIndex);
                         break;
                     case "DataGridViewTextBoxColumn_Delete":
-                        //deleteData(e.RowIndex);
+                        redirectToDeleteForm(e.RowIndex);
                         break;
                 }
             }
@@ -75,6 +74,18 @@ namespace CopyBackupToolUI.Forms
             Form _schedules = new SchedulesAdd(_fileConfigModel);
             _schedules.ShowDialog();
 
+        }
+        private void redirectToDeleteForm(int row)
+        {
+            // Confirm delete
+            DialogResult myResult;
+            myResult = MessageBox.Show("Are you really delete the item?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (myResult == DialogResult.OK) {
+                ConfigFileHelper.Delete(row);
+                // Update View
+                ConfigFileHelper.Load(false);
+                Schedules.dataGridViewSchedulesConfigs.DataSource = ConfigFileHelper.JsonFileConfigs;
+            }
         }
     }
 }

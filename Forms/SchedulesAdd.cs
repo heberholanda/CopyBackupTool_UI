@@ -55,7 +55,6 @@ namespace CopyBackupToolUI
             Console.Beep();
 
             // Get Data
-            //var _id = (ConfigFileHelper.JsonFileConfigs.Any(x => x.Id == _config.Id)) ? _config.Id : Guid.NewGuid();
             var _id = _config.Id;
             var _title = this.textBoxTitle.Text;
             var _status = this.checkBoxStatus.Checked;
@@ -105,7 +104,7 @@ namespace CopyBackupToolUI
                     }
                 }
             };
-            ConfigFileHelper.SaveOrUpdateJson(_myFileModel);
+            ConfigFileHelper.SaveOrUpdate(_myFileModel);
 
             // Update View
             ConfigFileHelper.Load(false);
