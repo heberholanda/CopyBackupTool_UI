@@ -28,7 +28,7 @@
             this.checkBoxCopyPasteStatus = new System.Windows.Forms.CheckBox();
             this.labelCopyPasteStatus = new System.Windows.Forms.Label();
             this.imageButtonZip = new System.Windows.Forms.Button();
-            this.textBoxCopyPaste_SourcePath = new System.Windows.Forms.TextBox();
+            this.textBoxCopyPasteSourcePath = new System.Windows.Forms.TextBox();
             this.labelCopyPasteSourcePath = new System.Windows.Forms.Label();
             this.checkBoxCopyPasteOverwrite = new System.Windows.Forms.CheckBox();
             this.labelCopyPasteOverwrite = new System.Windows.Forms.Label();
@@ -99,7 +99,7 @@
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(250, 20);
             this.textBoxTitle.TabIndex = 1;
-            this.textBoxTitle.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
+            this.textBoxTitle.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextField_Validating);
             // 
             // labelStatus
             // 
@@ -184,15 +184,15 @@
             this.imageButtonZip.TabStop = false;
             this.imageButtonZip.UseVisualStyleBackColor = false;
             // 
-            // textBoxCopyPaste_SourcePath
+            // textBoxCopyPasteSourcePath
             // 
-            this.textBoxCopyPaste_SourcePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCopyPaste_SourcePath.Location = new System.Drawing.Point(176, 134);
-            this.textBoxCopyPaste_SourcePath.Name = "textBoxCopyPaste_SourcePath";
-            this.textBoxCopyPaste_SourcePath.Size = new System.Drawing.Size(250, 20);
-            this.textBoxCopyPaste_SourcePath.TabIndex = 5;
-            this.textBoxCopyPaste_SourcePath.DoubleClick += new System.EventHandler(this.textBoxCopyPaste_SourcePath_Click);
-            this.textBoxCopyPaste_SourcePath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
+            this.textBoxCopyPasteSourcePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCopyPasteSourcePath.Location = new System.Drawing.Point(176, 134);
+            this.textBoxCopyPasteSourcePath.Name = "textBoxCopyPasteSourcePath";
+            this.textBoxCopyPasteSourcePath.Size = new System.Drawing.Size(250, 20);
+            this.textBoxCopyPasteSourcePath.TabIndex = 5;
+            this.textBoxCopyPasteSourcePath.DoubleClick += new System.EventHandler(this.textBoxCopyPaste_SourcePath_Click);
+            this.textBoxCopyPasteSourcePath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredFolderField_Validating);
             // 
             // labelCopyPasteSourcePath
             // 
@@ -241,7 +241,7 @@
             this.textBoxCopyPasteDestinationPath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCopyPasteDestinationPath.TabIndex = 6;
             this.textBoxCopyPasteDestinationPath.DoubleClick += new System.EventHandler(this.textBoxCopyPaste_DestinationPath_Click);
-            this.textBoxCopyPasteDestinationPath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
+            this.textBoxCopyPasteDestinationPath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredFolderField_Validating);
             // 
             // textBoxCopyPasteIgnoreFiles
             // 
@@ -325,7 +325,7 @@
             this.textBoxCompressDestinationPath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressDestinationPath.TabIndex = 12;
             this.textBoxCompressDestinationPath.DoubleClick += new System.EventHandler(this.textBoxCompressDestinationPath_Click);
-            this.textBoxCompressDestinationPath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
+            this.textBoxCompressDestinationPath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredFolderField_Validating);
             // 
             // labelCompressSourcePath
             // 
@@ -345,7 +345,7 @@
             this.textBoxCompressSourcePath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressSourcePath.TabIndex = 11;
             this.textBoxCompressSourcePath.DoubleClick += new System.EventHandler(this.textBoxCompressSourcePath_Click);
-            this.textBoxCompressSourcePath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
+            this.textBoxCompressSourcePath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredFolderField_Validating);
             // 
             // checkBoxCompressStatus
             // 
@@ -403,7 +403,7 @@
             this.textBoxCompressTitle.Name = "textBoxCompressTitle";
             this.textBoxCompressTitle.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressTitle.TabIndex = 10;
-            this.textBoxCompressTitle.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
+            this.textBoxCompressTitle.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextField_Validating);
             // 
             // labelCompressTitle
             // 
@@ -489,7 +489,7 @@
             this.Controls.Add(this.checkBoxCopyPasteOverwrite);
             this.Controls.Add(this.labelCopyPasteOverwrite);
             this.Controls.Add(this.labelCopyPasteSourcePath);
-            this.Controls.Add(this.textBoxCopyPaste_SourcePath);
+            this.Controls.Add(this.textBoxCopyPasteSourcePath);
             this.Controls.Add(this.imageButtonZip);
             this.Controls.Add(this.checkBoxCopyPasteStatus);
             this.Controls.Add(this.labelCopyPasteStatus);
@@ -532,7 +532,7 @@
         private System.Windows.Forms.CheckBox checkBoxCopyPasteStatus;
         private System.Windows.Forms.Label labelCopyPasteStatus;
         private System.Windows.Forms.Button imageButtonZip;
-        private System.Windows.Forms.TextBox textBoxCopyPaste_SourcePath;
+        private System.Windows.Forms.TextBox textBoxCopyPasteSourcePath;
         private System.Windows.Forms.Label labelCopyPasteSourcePath;
         private System.Windows.Forms.CheckBox checkBoxCopyPasteOverwrite;
         private System.Windows.Forms.Label labelCopyPasteOverwrite;

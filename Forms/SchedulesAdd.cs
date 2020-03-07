@@ -32,7 +32,7 @@ namespace CopyBackupToolUI
 
                 this.checkBoxCopyPasteStatus.Checked = _config.CopyAndPaste.Status;
                 this.checkBoxCopyPasteOverwrite.Checked = _config.CopyAndPaste.Overwrite;
-                this.textBoxCopyPaste_SourcePath.Text = _config.CopyAndPaste.SourcePath;
+                this.textBoxCopyPasteSourcePath.Text = _config.CopyAndPaste.SourcePath;
                 this.textBoxCopyPasteDestinationPath.Text = _config.CopyAndPaste.DestinationPath;
                 this.textBoxCopyPasteIgnoreFiles.Text = GlobalHelpers.ConvertStringArrayToString(_config.CopyAndPaste.Ignore.Files);
                 this.textBoxCopyPasteIgnoreFolders.Text = GlobalHelpers.ConvertStringArrayToString(_config.CopyAndPaste.Ignore.Folders);
@@ -67,7 +67,7 @@ namespace CopyBackupToolUI
 
             this.checkBoxCopyPasteStatus.Checked = false;
             this.checkBoxCopyPasteOverwrite.Checked = false;
-            this.textBoxCopyPaste_SourcePath.Text = string.Empty;
+            this.textBoxCopyPasteSourcePath.Text = string.Empty;
             this.textBoxCopyPasteDestinationPath.Text = string.Empty;
             this.textBoxCopyPasteIgnoreFiles.Text = string.Empty;
             this.textBoxCopyPasteIgnoreFolders.Text = string.Empty;
@@ -84,17 +84,17 @@ namespace CopyBackupToolUI
             Console.Beep();
 
             // Validate fields
-            ValidateRequiredField(errorProvider, textBoxTitle);
+            ValidateTextRequiredField(errorProvider, textBoxTitle);
             if (this.checkBoxCopyPasteStatus.Checked == true)
             {
-                ValidateRequiredField(errorProvider, textBoxCopyPaste_SourcePath);
-                ValidateRequiredField(errorProvider, textBoxCopyPasteDestinationPath);
+                ValidateFolderField(errorProvider, textBoxCopyPasteSourcePath);
+                ValidateFolderField(errorProvider, textBoxCopyPasteDestinationPath);
             }
             if (this.checkBoxCompressStatus.Checked == true)
             {
-                ValidateRequiredField(errorProvider, textBoxCompressTitle);
-                ValidateRequiredField(errorProvider, textBoxCompressSourcePath);
-                ValidateRequiredField(errorProvider, textBoxCompressDestinationPath);
+                ValidateTextRequiredField(errorProvider, textBoxCompressTitle);
+                ValidateFolderField(errorProvider, textBoxCompressSourcePath);
+                ValidateFolderField(errorProvider, textBoxCompressDestinationPath);
             }
 
             // Check if any field has an error message.
@@ -114,7 +114,7 @@ namespace CopyBackupToolUI
 
             var _copyPasteStatus = this.checkBoxCopyPasteStatus.Checked;
             var _copyPasteOverwrite = this.checkBoxCopyPasteOverwrite.Checked;
-            var _copyPasteSource = this.textBoxCopyPaste_SourcePath.Text;
+            var _copyPasteSource = this.textBoxCopyPasteSourcePath.Text;
             var _copyPasteDestination = this.textBoxCopyPasteDestinationPath.Text;
             string[] _copyPasteIgnoreFiles = this.textBoxCopyPasteIgnoreFiles.Text.Split(',').ToArray();
             string[] _copyPasteIgnoreFolders = this.textBoxCopyPasteIgnoreFolders.Text.Split(',').ToArray();
@@ -164,7 +164,7 @@ namespace CopyBackupToolUI
             Schedules.dataGridViewSchedulesConfigs.DataSource = ConfigFileHelper.JsonFileConfigs;
         }
 
-        private bool ValidateRequiredField(ErrorProvider error, TextBox tBox)
+        private bool ValidateTextRequiredField(ErrorProvider error, TextBox tBox)
         {
             if (tBox.Text.Length > 0) {
                 error.SetError(tBox, "");
@@ -175,14 +175,28 @@ namespace CopyBackupToolUI
                 return true;
             }
         }
-
-        private void RequiredField_Validating(object sender, CancelEventArgs e)
+        private void ValidateFolderField(ErrorProvider error, TextBox tBox)
         {
-            TextBox tBox = sender as TextBox;
-            ValidateRequiredField(errorProvider, tBox);
+            if (ValidateTextRequiredField(error, tBox)) return;
+            Regex _regex = new Regex(@"^(?:[A-Za-z]\:|\\\.\.|\.\.|\\)(\\|\\[a-zA-Z_\-\s0-9\.]+)+(\.\w+)?$");
+            if (_regex.IsMatch(tBox.Text))
+                errorProvider.SetError(tBox, "");
+            else
+                errorProvider.SetError(tBox, "This fields must have a folder path.");
         }
 
-        private void textBoxCopyPaste_SourcePath_Click(object sender, EventArgs e){   this.textBoxCopyPaste_SourcePath.Text = GetFolderPath();    }
+        private void RequiredTextField_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox tBox = sender as TextBox;
+            ValidateTextRequiredField(errorProvider, tBox);
+        }
+        private void RequiredFolderField_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox tBox = sender as TextBox;
+            ValidateFolderField(errorProvider, tBox);
+        }
+
+        private void textBoxCopyPaste_SourcePath_Click(object sender, EventArgs e){   this.textBoxCopyPasteSourcePath.Text = GetFolderPath();    }
         private void textBoxCopyPaste_DestinationPath_Click(object sender, EventArgs e){   this.textBoxCopyPasteDestinationPath.Text = GetFolderPath();    }
         private void textBoxCompressSourcePath_Click(object sender, EventArgs e){    this.textBoxCompressSourcePath.Text = GetFolderPath();  }
         private void textBoxCompressDestinationPath_Click(object sender, EventArgs e){  this.textBoxCompressDestinationPath.Text = GetFolderPath(); }
