@@ -37,8 +37,8 @@ namespace CopyBackupToolUI.Helpers
                 if (!GlobalHelpers.FolderExists(_path))
                     GlobalHelpers.FolderCreate(_path);
 
-                using (System.IO.StreamWriter file =
-                    new System.IO.StreamWriter(_pathSave, true))
+                using (StreamWriter file =
+                    new StreamWriter(_pathSave, true))
                 {
                     foreach (var _line in Get())
                     {

@@ -15,7 +15,11 @@ namespace CopyBackupToolUI.Forms
         private void Schedules_Load(object sender, System.EventArgs e)
         {
         }
-
+        private void buttonSchedulesAdd_Click(object sender, EventArgs e)
+        {
+            Form _schedules = new SchedulesAdd();
+            _schedules.ShowDialog();
+        }
         private void dataGridViewSchedulesConfigs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try

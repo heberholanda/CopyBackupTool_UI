@@ -19,12 +19,13 @@
         {
             this.components = new System.ComponentModel.Container();
             dataGridViewSchedulesConfigs = new System.Windows.Forms.DataGridView();
-            this.labelTitle = new System.Windows.Forms.Label();
-            this.fileModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataGridViewTextBoxColumn_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridViewCheckBoxColumn_status = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DataGridViewTextBoxColumn_Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DataGridViewTextBoxColumn_Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.fileModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.buttonSchedulesAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(dataGridViewSchedulesConfigs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileModelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -44,21 +45,7 @@
             dataGridViewSchedulesConfigs.Name = "dataGridViewSchedulesConfigs";
             dataGridViewSchedulesConfigs.Size = new System.Drawing.Size(543, 272);
             dataGridViewSchedulesConfigs.TabIndex = 0;
-            dataGridViewSchedulesConfigs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSchedulesConfigs_CellContentClick);
-            // 
-            // labelTitle
-            // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(159, 14);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(250, 28);
-            this.labelTitle.TabIndex = 1;
-            this.labelTitle.Text = "Backups Configurations";
-            // 
-            // fileModelBindingSource
-            // 
-            this.fileModelBindingSource.DataSource = typeof(CopyBackupToolUI.Models.FileModel);
+            dataGridViewSchedulesConfigs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(dataGridViewSchedulesConfigs_CellContentClick);
             // 
             // DataGridViewTextBoxColumn_title
             // 
@@ -95,11 +82,37 @@
             this.DataGridViewTextBoxColumn_Delete.Text = "Delete";
             this.DataGridViewTextBoxColumn_Delete.UseColumnTextForButtonValue = true;
             // 
+            // fileModelBindingSource
+            // 
+            this.fileModelBindingSource.DataSource = typeof(CopyBackupToolUI.Models.FileModel);
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Location = new System.Drawing.Point(107, 14);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(250, 28);
+            this.labelTitle.TabIndex = 1;
+            this.labelTitle.Text = "Backups Configurations";
+            // 
+            // buttonSchedulesAdd
+            // 
+            this.buttonSchedulesAdd.AutoEllipsis = true;
+            this.buttonSchedulesAdd.Location = new System.Drawing.Point(449, 9);
+            this.buttonSchedulesAdd.Name = "buttonSchedulesAdd";
+            this.buttonSchedulesAdd.Size = new System.Drawing.Size(92, 38);
+            this.buttonSchedulesAdd.TabIndex = 2;
+            this.buttonSchedulesAdd.Text = "New";
+            this.buttonSchedulesAdd.UseVisualStyleBackColor = true;
+            this.buttonSchedulesAdd.Click += new System.EventHandler(this.buttonSchedulesAdd_Click);
+            // 
             // Schedules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 338);
+            this.Controls.Add(this.buttonSchedulesAdd);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(dataGridViewSchedulesConfigs);
             this.Name = "Schedules";
@@ -113,14 +126,13 @@
         }
 
         #endregion
-
-        public static System.Windows.Forms.DataGridView dataGridViewSchedulesConfigs;
         private System.Windows.Forms.BindingSource fileModelBindingSource;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_title;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DataGridViewCheckBoxColumn_status;
         private System.Windows.Forms.DataGridViewButtonColumn DataGridViewTextBoxColumn_Update;
         private System.Windows.Forms.DataGridViewButtonColumn DataGridViewTextBoxColumn_Delete;
-
+        private System.Windows.Forms.Button buttonSchedulesAdd;
+        public static System.Windows.Forms.DataGridView dataGridViewSchedulesConfigs;
     }
 }

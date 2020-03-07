@@ -21,11 +21,14 @@ namespace CopyBackupToolUI
             InitializeComponent();
             _config = config;
         }
-
         private void Schedules_Load(object sender, EventArgs e)
         {
             try
             {
+                if (_config.Title == null)
+                {
+                    return;
+                }
                 // Load by DataGrid
                 this.textBoxTitle.Text = _config.Title;
                 this.checkBoxStatus.Checked = _config.Status;
@@ -162,15 +165,21 @@ namespace CopyBackupToolUI
             // Update View
             ConfigFileHelper.Load(false);
             Schedules.dataGridViewSchedulesConfigs.DataSource = ConfigFileHelper.JsonFileConfigs;
+
+            // Close
+            this.Close();
         }
 
+        #region SchedulesAdd - Form Validation
         private bool ValidateTextRequiredField(ErrorProvider error, TextBox tBox)
         {
-            if (tBox.Text.Length > 0) {
+            if (tBox.Text.Length > 0)
+            {
                 error.SetError(tBox, "");
                 return false;
             }
-            else {
+            else
+            {
                 error.SetError(tBox, "This field must not be blank.");
                 return true;
             }
@@ -195,14 +204,11 @@ namespace CopyBackupToolUI
             TextBox tBox = sender as TextBox;
             ValidateFolderField(errorProvider, tBox);
         }
+        #endregion
 
         private void textBoxCopyPaste_SourcePath_Click(object sender, EventArgs e){   this.textBoxCopyPasteSourcePath.Text = GetFolderPath();    }
         private void textBoxCopyPaste_DestinationPath_Click(object sender, EventArgs e){   this.textBoxCopyPasteDestinationPath.Text = GetFolderPath();    }
         private void textBoxCompressSourcePath_Click(object sender, EventArgs e){    this.textBoxCompressSourcePath.Text = GetFolderPath();  }
         private void textBoxCompressDestinationPath_Click(object sender, EventArgs e){  this.textBoxCompressDestinationPath.Text = GetFolderPath(); }
-
-        #region SchedulesAdd - Form Validation
-
-        #endregion
     }
 }
