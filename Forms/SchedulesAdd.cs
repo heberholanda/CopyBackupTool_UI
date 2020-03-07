@@ -2,7 +2,9 @@
 using CopyBackupToolUI.Helpers;
 using CopyBackupToolUI.Models;
 using System;
+using System.ComponentModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace CopyBackupToolUI
@@ -20,6 +22,33 @@ namespace CopyBackupToolUI
             _config = config;
         }
 
+        private void Schedules_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // Load by DataGrid
+                this.textBoxTitle.Text = _config.Title;
+                this.checkBoxStatus.Checked = _config.Status;
+
+                this.checkBoxCopyPasteStatus.Checked = _config.CopyAndPaste.Status;
+                this.checkBoxCopyPasteOverwrite.Checked = _config.CopyAndPaste.Overwrite;
+                this.textBoxCopyPaste_SourcePath.Text = _config.CopyAndPaste.SourcePath;
+                this.textBoxCopyPasteDestinationPath.Text = _config.CopyAndPaste.DestinationPath;
+                this.textBoxCopyPasteIgnoreFiles.Text = GlobalHelpers.ConvertStringArrayToString(_config.CopyAndPaste.Ignore.Files);
+                this.textBoxCopyPasteIgnoreFolders.Text = GlobalHelpers.ConvertStringArrayToString(_config.CopyAndPaste.Ignore.Folders);
+
+                this.checkBoxCompressStatus.Checked = _config.CompressFolder.Status;
+                this.textBoxCompressTitle.Text = _config.CompressFolder.ZipFileName;
+                this.textBoxCompressSourcePath.Text = _config.CompressFolder.SourcePath;
+                this.textBoxCompressDestinationPath.Text = _config.CompressFolder.MoveToPath;
+                this.textBoxCompressIgnoreFiles.Text = GlobalHelpers.ConvertStringArrayToString(_config.CompressFolder.Ignore.Files);
+                this.textBoxCompressIgnoreFolders.Text = GlobalHelpers.ConvertStringArrayToString(_config.CompressFolder.Ignore.Folders);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
         public string GetFolderPath()
         {
             var _resultMSG = "";
@@ -53,6 +82,30 @@ namespace CopyBackupToolUI
         private void buttonSave_Click(object sender, EventArgs e)
         {
             Console.Beep();
+
+            // Validate fields
+            ValidateRequiredField(errorProvider, textBoxTitle);
+            if (this.checkBoxCopyPasteStatus.Checked == true)
+            {
+                ValidateRequiredField(errorProvider, textBoxCopyPaste_SourcePath);
+                ValidateRequiredField(errorProvider, textBoxCopyPasteDestinationPath);
+            }
+            if (this.checkBoxCompressStatus.Checked == true)
+            {
+                ValidateRequiredField(errorProvider, textBoxCompressTitle);
+                ValidateRequiredField(errorProvider, textBoxCompressSourcePath);
+                ValidateRequiredField(errorProvider, textBoxCompressDestinationPath);
+            }
+
+            // Check if any field has an error message.
+            foreach (Control ctrl in Controls)
+            {
+                if (errorProvider.GetError(ctrl) != "")
+                {
+                    //MessageBox.Show(errorProvider.GetError(ctrl));
+                    return;
+                }
+            }
 
             // Get Data
             var _id = _config.Id;
@@ -110,36 +163,32 @@ namespace CopyBackupToolUI
             ConfigFileHelper.Load(false);
             Schedules.dataGridViewSchedulesConfigs.DataSource = ConfigFileHelper.JsonFileConfigs;
         }
-        private void Schedules_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                // Load by DataGrid
-                this.textBoxTitle.Text = _config.Title;
-                this.checkBoxStatus.Checked = _config.Status;
-               
-                this.checkBoxCopyPasteStatus.Checked = _config.CopyAndPaste.Status;
-                this.checkBoxCopyPasteOverwrite.Checked = _config.CopyAndPaste.Overwrite;
-                this.textBoxCopyPaste_SourcePath.Text = _config.CopyAndPaste.SourcePath;
-                this.textBoxCopyPasteDestinationPath.Text = _config.CopyAndPaste.DestinationPath;
-                this.textBoxCopyPasteIgnoreFiles.Text = GlobalHelpers.ConvertStringArrayToString(_config.CopyAndPaste.Ignore.Files);
-                this.textBoxCopyPasteIgnoreFolders.Text = GlobalHelpers.ConvertStringArrayToString(_config.CopyAndPaste.Ignore.Folders);
 
-                this.checkBoxCompressStatus.Checked = _config.CompressFolder.Status;
-                this.textBoxCompressTitle.Text = _config.CompressFolder.ZipFileName;
-                this.textBoxCompressSourcePath.Text = _config.CompressFolder.SourcePath;
-                this.textBoxCompressDestinationPath.Text = _config.CompressFolder.MoveToPath;
-                this.textBoxCompressIgnoreFiles.Text = GlobalHelpers.ConvertStringArrayToString(_config.CompressFolder.Ignore.Files);
-                this.textBoxCompressIgnoreFolders.Text = GlobalHelpers.ConvertStringArrayToString(_config.CompressFolder.Ignore.Folders);
+        private bool ValidateRequiredField(ErrorProvider error, TextBox tBox)
+        {
+            if (tBox.Text.Length > 0) {
+                error.SetError(tBox, "");
+                return false;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+            else {
+                error.SetError(tBox, "This field must not be blank.");
+                return true;
             }
         }
+
+        private void RequiredField_Validating(object sender, CancelEventArgs e)
+        {
+            TextBox tBox = sender as TextBox;
+            ValidateRequiredField(errorProvider, tBox);
+        }
+
         private void textBoxCopyPaste_SourcePath_Click(object sender, EventArgs e){   this.textBoxCopyPaste_SourcePath.Text = GetFolderPath();    }
         private void textBoxCopyPaste_DestinationPath_Click(object sender, EventArgs e){   this.textBoxCopyPasteDestinationPath.Text = GetFolderPath();    }
         private void textBoxCompressSourcePath_Click(object sender, EventArgs e){    this.textBoxCompressSourcePath.Text = GetFolderPath();  }
         private void textBoxCompressDestinationPath_Click(object sender, EventArgs e){  this.textBoxCompressDestinationPath.Text = GetFolderPath(); }
+
+        #region SchedulesAdd - Form Validation
+
+        #endregion
     }
 }

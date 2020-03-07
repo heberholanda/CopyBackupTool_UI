@@ -149,15 +149,16 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Files\appIcon.png" />
-    <Content Include="Files\arquivos-e-pastas.png" />
+    <Content Include="Files\zip.png" />
+    <Content Include="Files\alert.ico" />
     <Content Include="Files\config.png" />
     <Content Include="Files\copyFolder.png" />
-    <Content Include="Files\cronograma.png" />
-    <Content Include="Files\desperdicio.png" />
-    <Content Include="Files\ferramentas.png" />
+    <Content Include="Files\schedule.png" />
+    <Content Include="Files\trash.png" />
+    <Content Include="Files\tools.png" />
     <Content Include="Files\myApp.ico" />
-    <Content Include="Files\proximo.png" />
-    <Content Include="Files\registro.png" />
+    <Content Include="Files\next.png" />
+    <Content Include="Files\register.png" />
     <Content Include="myApp.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

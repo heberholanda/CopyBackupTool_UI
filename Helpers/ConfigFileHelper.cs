@@ -9,9 +9,9 @@ namespace CopyBackupToolUI.Helpers
 {
     public static class ConfigFileHelper
     {
-        public static string ConfigPath = AppDomain.CurrentDomain.BaseDirectory + ConfigFile;
+        public static string ConfigPath = AppDomain.CurrentDomain.BaseDirectory;
         public static string ConfigFile = "ConfigurationFile.json";
-        public static string ConfigFullPath = "C:\\CopyBackupTool\\CopyBackupTool\\" + ConfigFile;
+        public static string ConfigFullPath = Path.Combine(ConfigPath, ConfigFile);
         public static List<FileModel> JsonFileConfigs = new List<FileModel>();
         
         public static void Load(bool showLog = true)
@@ -39,7 +39,7 @@ namespace CopyBackupToolUI.Helpers
             }
             catch (FileNotFoundException ex)
             {
-                ConsoleLogHelper.Add("[ Config ] The file Config File not found! File: " + ex.FileName);
+                ConsoleLogHelper.Add("[ Config ] The config file not found! File: " + ex.FileName);
                 return new List<FileModel>();
             }
             catch (IOException e)

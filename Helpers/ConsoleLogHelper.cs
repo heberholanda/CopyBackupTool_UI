@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 
 namespace CopyBackupToolUI.Helpers
 {
@@ -29,7 +30,7 @@ namespace CopyBackupToolUI.Helpers
             try
             {
                 var _dateTimeNow = DateTime.Now.ToString("dd-MM-yyyy");
-                var _path = AppDomain.CurrentDomain.BaseDirectory + "Log";
+                var _path = Path.Combine(ConfigFileHelper.ConfigPath, "Log");
                 var _fileName = "ConsoleLog " + _dateTimeNow + ".txt";
                 var _pathSave = (_path + "\\" + _fileName);
 

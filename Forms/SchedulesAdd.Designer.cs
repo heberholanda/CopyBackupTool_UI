@@ -15,6 +15,7 @@
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SchedulesAdd));
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
@@ -56,8 +57,10 @@
             this.panelThree = new System.Windows.Forms.Panel();
             this.labelCopyAndPaste = new System.Windows.Forms.Label();
             this.labelCompressMode = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelCopyPasteIgnoreModal.SuspendLayout();
             this.panelCompressIgnoreModal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAdd
@@ -96,6 +99,7 @@
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(250, 20);
             this.textBoxTitle.TabIndex = 1;
+            this.textBoxTitle.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
             // 
             // labelStatus
             // 
@@ -188,6 +192,7 @@
             this.textBoxCopyPaste_SourcePath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCopyPaste_SourcePath.TabIndex = 5;
             this.textBoxCopyPaste_SourcePath.DoubleClick += new System.EventHandler(this.textBoxCopyPaste_SourcePath_Click);
+            this.textBoxCopyPaste_SourcePath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
             // 
             // labelCopyPasteSourcePath
             // 
@@ -236,6 +241,7 @@
             this.textBoxCopyPasteDestinationPath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCopyPasteDestinationPath.TabIndex = 6;
             this.textBoxCopyPasteDestinationPath.DoubleClick += new System.EventHandler(this.textBoxCopyPaste_DestinationPath_Click);
+            this.textBoxCopyPasteDestinationPath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
             // 
             // textBoxCopyPasteIgnoreFiles
             // 
@@ -319,6 +325,7 @@
             this.textBoxCompressDestinationPath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressDestinationPath.TabIndex = 12;
             this.textBoxCompressDestinationPath.DoubleClick += new System.EventHandler(this.textBoxCompressDestinationPath_Click);
+            this.textBoxCompressDestinationPath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
             // 
             // labelCompressSourcePath
             // 
@@ -338,6 +345,7 @@
             this.textBoxCompressSourcePath.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressSourcePath.TabIndex = 11;
             this.textBoxCompressSourcePath.DoubleClick += new System.EventHandler(this.textBoxCompressSourcePath_Click);
+            this.textBoxCompressSourcePath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
             // 
             // checkBoxCompressStatus
             // 
@@ -395,6 +403,7 @@
             this.textBoxCompressTitle.Name = "textBoxCompressTitle";
             this.textBoxCompressTitle.Size = new System.Drawing.Size(250, 20);
             this.textBoxCompressTitle.TabIndex = 10;
+            this.textBoxCompressTitle.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredField_Validating);
             // 
             // labelCompressTitle
             // 
@@ -449,6 +458,11 @@
             this.labelCompressMode.TabIndex = 27;
             this.labelCompressMode.Text = "Compress Mode";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
+            // 
             // SchedulesAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,13 +512,15 @@
             this.panelCopyPasteIgnoreModal.PerformLayout();
             this.panelCompressIgnoreModal.ResumeLayout(false);
             this.panelCompressIgnoreModal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
         #endregion
 
+
+        #region #Components
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Label labelTitle;
@@ -545,5 +561,7 @@
         private System.Windows.Forms.Panel panelThree;
         private System.Windows.Forms.Label labelCopyAndPaste;
         private System.Windows.Forms.Label labelCompressMode;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        #endregion
     }
 }
