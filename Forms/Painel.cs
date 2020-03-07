@@ -1,8 +1,6 @@
 ﻿using CopyBackupToolUI.Forms;
 using CopyBackupToolUI.Helpers;
-using CopyBackupToolUI.Models;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CopyBackupToolUI
@@ -189,6 +187,11 @@ namespace CopyBackupToolUI
             notifyIcon.BalloonTipTitle = tipTitle;
             notifyIcon.BalloonTipText = tipText;
             notifyIcon.ShowBalloonTip(time);
+        }
+        public void MinimizeFormEscape(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Escape)
+                this.Hide();
         }
         private void timer1_Tick(object sender, EventArgs e)
         {

@@ -91,5 +91,10 @@ namespace CopyBackupToolUI.Forms
                 Schedules.dataGridViewSchedulesConfigs.DataSource = ConfigFileHelper.JsonFileConfigs;
             }
         }
+        public void MinimizeFormEscape(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Escape)
+                this.Hide();
+        }
     }
 }

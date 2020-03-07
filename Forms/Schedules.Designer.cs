@@ -1,4 +1,6 @@
-﻿namespace CopyBackupToolUI.Forms
+﻿using System.Windows.Forms;
+
+namespace CopyBackupToolUI.Forms
 {
     partial class Schedules
     {
@@ -123,6 +125,9 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            // KeyDown event - Minimize on press "Esc" or Escape
+            this.KeyPreview = true;
+            this.KeyPress += new KeyPressEventHandler(MinimizeFormEscape);
         }
 
         #endregion

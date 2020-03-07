@@ -208,6 +208,9 @@ namespace CopyBackupToolUI
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
+            // KeyDown event - Minimize on press "Esc" or Escape
+            this.KeyPreview = true;
+            this.KeyPress += new KeyPressEventHandler(MinimizeFormEscape);
         }
 
         #endregion
